@@ -1,0 +1,959 @@
+/*
+ * Baseball Digest Community — Discourse theme
+ * Version 1.0.0
+ * Most selectors intentionally style stable Discourse building blocks rather
+ * than replacing core templates or application behavior.
+ */
+
+:root {
+  --bd-navy: #0a2047;
+  --bd-deep: #061226;
+  --bd-deeper: #020711;
+  --bd-cream: #f5e9cd;
+  --bd-cream-soft: #fffaf0;
+  --bd-gold: #d4a83c;
+  --bd-dark-gold: #9b7628;
+  --bd-red: #a91f2d;
+  --bd-red-dark: #72111c;
+  --bd-green: #175e3b;
+  --bd-steel: #274e7b;
+  --bd-ink: #071429;
+  --bd-muted-ink: rgba(7, 20, 41, 0.7);
+  --bd-border: rgba(155, 118, 40, 0.62);
+  --bd-soft-border: rgba(10, 32, 71, 0.16);
+  --bd-panel-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+  --bd-control-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+  --bd-max-width: 1180px;
+  --d-max-width: 1180px;
+}
+
+html {
+  min-height: 100%;
+  background: var(--bd-deep);
+}
+
+body {
+  min-height: 100vh;
+  color: var(--bd-cream);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(212, 168, 60, 0.2), transparent 31rem),
+    linear-gradient(135deg, var(--bd-navy), var(--bd-deep) 70%, var(--bd-deeper));
+  background-attachment: fixed;
+}
+
+body,
+input,
+textarea,
+select,
+button {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+::selection {
+  color: var(--bd-cream-soft);
+  background: var(--bd-red);
+}
+
+/* Keep the standard Discourse utility header functional and recognizable. */
+.d-header-wrap {
+  background: rgba(10, 32, 71, 0.98);
+  border-bottom: 1px solid rgba(212, 168, 60, 0.5);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
+}
+
+.d-header {
+  color: var(--bd-cream);
+  background: transparent;
+}
+
+.d-header .wrap,
+.bd-theme-masthead__inner,
+.bd-theme-footer__inner {
+  box-sizing: border-box;
+  width: min(var(--bd-max-width), calc(100% - 28px));
+  max-width: var(--bd-max-width);
+  margin-inline: auto;
+}
+
+.d-header .title a,
+.d-header .title .site-text-logo,
+.d-header-icons .icon,
+.d-header-icons .icon .d-icon,
+.d-header .hamburger-dropdown .btn,
+.d-header .search-dropdown .btn {
+  color: var(--bd-cream);
+}
+
+.d-header .title .site-text-logo {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.08rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.d-header .title img {
+  max-height: 36px;
+}
+
+.d-header-icons .icon:hover,
+.d-header-icons .icon:focus,
+.d-header-icons .icon:focus-visible,
+.d-header .icon:hover,
+.d-header .icon:focus-visible {
+  color: var(--bd-gold);
+  background: rgba(245, 233, 205, 0.1);
+}
+
+.d-header .header-buttons .btn,
+.d-header .login-button,
+.d-header .sign-up-button {
+  min-height: 38px;
+  border: 1px solid rgba(212, 168, 60, 0.65);
+  border-radius: 7px;
+  font-weight: 800;
+}
+
+.d-header .login-button {
+  color: var(--bd-navy);
+  background: var(--bd-gold);
+}
+
+.d-header .sign-up-button {
+  color: var(--bd-cream);
+  background: var(--bd-red);
+}
+
+/* Custom Baseball Digest masthead below the native Discourse utility bar. */
+.bd-theme-masthead {
+  color: var(--bd-cream);
+}
+
+.bd-theme-masthead__inner {
+  padding: 10px 0 4px;
+}
+
+.bd-theme-header-shortcuts {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-left: 10px;
+}
+
+.bd-theme-header-shortcut {
+  display: inline-grid;
+  place-items: center;
+  box-sizing: border-box;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  color: var(--bd-cream);
+  background: rgba(245, 233, 205, 0.08);
+  border: 1px solid rgba(212, 168, 60, 0.58);
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.17);
+  transition: filter 120ms ease, transform 120ms ease, background 120ms ease;
+}
+
+.bd-theme-header-shortcut__icon {
+  display: block;
+  width: 27px;
+  height: 27px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.bd-theme-header-shortcut__icon--home {
+  background-image: url($bd-home-icon);
+}
+
+.bd-theme-header-shortcut__icon--profile {
+  background-image: url($bd-profile-icon);
+}
+
+.bd-theme-header-shortcut:hover,
+.bd-theme-header-shortcut:focus-visible,
+.bd-theme-action:hover,
+.bd-theme-action:focus-visible {
+  filter: brightness(1.13);
+  transform: translateY(-1px);
+}
+
+.bd-theme-header-shortcut:focus-visible,
+.bd-theme-action:focus-visible {
+  outline: 3px solid var(--bd-gold);
+  outline-offset: 3px;
+}
+
+.bd-theme-community-copy {
+  width: min(920px, 100%);
+  margin: 0 auto 16px;
+  text-align: center;
+}
+
+.bd-theme-community-title {
+  margin: 3px 0 5px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 5.2vw, 3.65rem);
+  font-weight: 800;
+  line-height: 0.98;
+  text-transform: uppercase;
+  text-shadow: 0 3px 0 rgba(169, 31, 45, 0.65), 0 10px 20px rgba(0, 0, 0, 0.28);
+}
+
+.bd-theme-community-title a {
+  color: var(--bd-cream);
+  text-decoration: none;
+}
+
+.bd-theme-community-copy p {
+  margin: 0 auto;
+  color: rgba(245, 233, 205, 0.86);
+  font-size: 0.96rem;
+  line-height: 1.45;
+}
+
+/* Homepage welcome panel. Body route classes update automatically during SPA navigation. */
+.bd-theme-home-welcome {
+  display: none;
+  grid-template-columns: minmax(0, 1.7fr) minmax(220px, 0.7fr);
+  gap: 18px;
+  align-items: stretch;
+  margin: 0 0 17px;
+  overflow: hidden;
+  color: var(--bd-ink);
+  background: linear-gradient(180deg, rgba(245, 233, 205, 0.99), rgba(235, 224, 197, 0.99));
+  border: 2px solid rgba(212, 168, 60, 0.82);
+  border-radius: 10px;
+  box-shadow: var(--bd-panel-shadow);
+}
+
+body.navigation-topics .bd-theme-home-welcome,
+body.navigation-latest .bd-theme-home-welcome,
+body.navigation-categories .bd-theme-home-welcome,
+body.navigation-new .bd-theme-home-welcome,
+body.navigation-unread .bd-theme-home-welcome,
+body.navigation-top .bd-theme-home-welcome {
+  display: grid;
+}
+
+.bd-theme-home-welcome__copy {
+  padding: 20px;
+}
+
+.bd-theme-home-welcome h2 {
+  margin: 0 0 7px;
+  color: var(--bd-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  line-height: 1.1;
+}
+
+.bd-theme-home-welcome p {
+  margin: 0;
+  color: rgba(7, 20, 41, 0.78);
+  line-height: 1.5;
+}
+
+.bd-theme-home-welcome__actions {
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  padding: 18px;
+  background: rgba(10, 32, 71, 0.08);
+  border-left: 1px solid rgba(10, 32, 71, 0.15);
+}
+
+.bd-theme-action {
+  padding: 8px 13px;
+  font-size: 0.86rem;
+  text-align: center;
+}
+
+.bd-theme-action--primary {
+  color: var(--bd-cream);
+  background: linear-gradient(180deg, var(--bd-red), var(--bd-red-dark));
+  border-color: var(--bd-gold);
+}
+
+.bd-theme-action--secondary {
+  color: var(--bd-navy);
+  background: linear-gradient(180deg, var(--bd-gold), var(--bd-dark-gold));
+  border-color: var(--bd-dark-gold);
+}
+
+/* Main application width and page-level text. */
+#main-outlet-wrapper {
+  box-sizing: border-box;
+  max-width: calc(var(--bd-max-width) + var(--d-sidebar-width, 0px) + 3rem);
+  margin-inline: auto;
+}
+
+body:not(.has-sidebar-page) #main-outlet {
+  box-sizing: border-box;
+  width: min(var(--bd-max-width), calc(100% - 28px));
+  max-width: var(--bd-max-width);
+  margin-inline: auto;
+}
+
+#main-outlet {
+  color: var(--bd-cream);
+}
+
+#main-outlet > h1,
+#main-outlet > h2,
+#main-outlet .page-title,
+#main-outlet .topic-title h1,
+#main-outlet .fancy-title,
+#main-outlet .user-main .user-profile-names h1,
+#main-outlet .group-info-name {
+  color: var(--bd-cream);
+  font-family: Georgia, "Times New Roman", serif;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.28);
+}
+
+#main-outlet a:not(.btn):not(.bd-theme-action) {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+/* Navigation controls and breadcrumbs. */
+.list-controls,
+.navigation-container,
+.category-navigation,
+.top-lists,
+.user-navigation,
+.groups-header-filters,
+.tags-page .tag-sort-options {
+  color: var(--bd-cream);
+}
+
+.nav-pills,
+.nav-pills > li,
+.nav-pills > li > a,
+.list-controls .nav-pills {
+  border-radius: 7px;
+}
+
+.nav-pills > li > a,
+.nav-pills > li button,
+.navigation-controls .btn,
+.category-breadcrumb .select-kit-header,
+.list-controls .combo-box .combo-box-header,
+.select-kit.single-select .select-kit-header {
+  color: var(--bd-cream);
+  background: rgba(10, 32, 71, 0.91);
+  border: 1px solid rgba(212, 168, 60, 0.5);
+}
+
+.nav-pills > li > a:hover,
+.nav-pills > li > a:focus,
+.nav-pills > li.active > a,
+.nav-pills > li > a.active,
+.nav-pills > li button:hover,
+.nav-pills > li button:focus {
+  color: var(--bd-cream);
+  background: var(--bd-red);
+}
+
+.category-breadcrumb,
+.topic-category,
+.topic-statuses,
+.topic-header-extra {
+  color: var(--bd-cream);
+}
+
+.badge-wrapper.bullet span.badge-category,
+.badge-wrapper.box span.badge-category,
+.discourse-tag {
+  border-radius: 5px;
+}
+
+/* Topic and category lists — the forum-index scoreboard treatment. */
+.topic-list,
+.category-list,
+.latest-topic-list,
+.top-topic-list,
+.category-boxes .category-box-inner,
+.category-list-item.category,
+.search-container .search-results,
+.user-stream .item,
+.group-members .group-member,
+.badge-card,
+.directory-table {
+  color: var(--bd-ink);
+  background: linear-gradient(180deg, rgba(255, 250, 240, 0.99), rgba(245, 233, 205, 0.98));
+  border: 1px solid rgba(212, 168, 60, 0.76);
+  border-radius: 10px;
+  box-shadow: var(--bd-panel-shadow);
+}
+
+.topic-list,
+.category-list,
+.directory-table {
+  overflow: hidden;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.topic-list-header,
+.topic-list-header tr,
+.category-list thead,
+.category-list thead tr,
+.directory-table thead,
+.directory-table thead tr {
+  color: var(--bd-cream);
+  background: linear-gradient(180deg, var(--bd-navy), #071a3a);
+}
+
+.topic-list-header th,
+.category-list th,
+.directory-table th {
+  color: var(--bd-cream);
+  background: transparent;
+  border-bottom: 2px solid var(--bd-gold);
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+}
+
+.topic-list-item,
+.category-list tbody tr,
+.directory-table tbody tr,
+.latest-topic-list-item {
+  color: var(--bd-ink);
+  background: rgba(255, 250, 240, 0.83);
+}
+
+.topic-list-item:nth-child(even),
+.category-list tbody tr:nth-child(even),
+.directory-table tbody tr:nth-child(even),
+.latest-topic-list-item:nth-child(even) {
+  background: rgba(245, 233, 205, 0.88);
+}
+
+.topic-list-item:hover,
+.category-list tbody tr:hover,
+.directory-table tbody tr:hover,
+.latest-topic-list-item:hover {
+  background: rgba(212, 168, 60, 0.17);
+}
+
+.topic-list td,
+.category-list td,
+.directory-table td,
+.latest-topic-list-item {
+  border-bottom-color: rgba(10, 32, 71, 0.12);
+}
+
+.topic-list .main-link a.title,
+.topic-list .link-top-line a.title,
+.latest-topic-list-item .main-link a,
+.category-list .category-name,
+.category-list .category-name a,
+.category-boxes .category-box-heading a,
+.search-results .fps-topic a.search-link,
+.user-stream .title a,
+.directory-table a {
+  color: var(--bd-navy);
+  font-weight: 780;
+}
+
+.topic-list .main-link a.title:hover,
+.topic-list .link-top-line a.title:hover,
+.latest-topic-list-item .main-link a:hover,
+.category-list .category-name a:hover,
+.category-boxes .category-box-heading a:hover,
+.search-results .fps-topic a.search-link:hover,
+.user-stream .title a:hover,
+.directory-table a:hover {
+  color: var(--bd-red);
+}
+
+.topic-list .topic-excerpt,
+.topic-list .topic-post-badges,
+.topic-list .posters,
+.topic-list .num,
+.topic-list .activity,
+.category-list .category-description,
+.category-list .topics,
+.category-list .latest,
+.latest-topic-list-item .topic-stats,
+.category-boxes .description,
+.search-results .blurb,
+.user-stream .excerpt {
+  color: var(--bd-muted-ink);
+}
+
+.topic-list .num a,
+.topic-list .activity a,
+.category-list .topics a,
+.category-list .latest a {
+  color: var(--bd-red);
+  font-weight: 800;
+}
+
+.category-list .category-text-title,
+.category-boxes .category-box-heading h3,
+.category-boxes .category-box-heading {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.category-boxes .category-box {
+  border: 0;
+}
+
+.category-boxes .category-box-inner {
+  height: 100%;
+}
+
+.category-boxes .category-box-heading {
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid rgba(10, 32, 71, 0.16);
+}
+
+/* Topic pages and posts. */
+.topic-post article.boxed,
+.topic-post article.boxed > .row,
+.topic-map,
+.small-action,
+.post-notice,
+.gap,
+.suggested-topics-wrapper,
+.more-topics__container,
+.more-topics__list,
+.topic-area > .loading-container {
+  color: var(--bd-ink);
+  background: linear-gradient(180deg, rgba(255, 250, 240, 0.99), rgba(245, 233, 205, 0.98));
+  border-color: rgba(212, 168, 60, 0.72);
+}
+
+.topic-post article.boxed,
+.topic-post article.boxed > .row,
+.topic-map,
+.post-notice,
+.suggested-topics-wrapper,
+.more-topics__container {
+  border-radius: 10px;
+}
+
+.topic-post article.boxed {
+  overflow: hidden;
+  border: 1px solid rgba(212, 168, 60, 0.72);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.24);
+}
+
+.topic-post .topic-avatar {
+  background: rgba(10, 32, 71, 0.06);
+  border-color: rgba(10, 32, 71, 0.16);
+}
+
+.topic-post .topic-body {
+  color: var(--bd-ink);
+  background: transparent;
+  border-color: rgba(10, 32, 71, 0.16);
+}
+
+.topic-post .cooked,
+.topic-post .cooked p,
+.topic-post .cooked li,
+.topic-post .cooked td,
+.topic-post .cooked th,
+.topic-post .post-info,
+.topic-post .topic-meta-data,
+.topic-post .topic-meta-data .names,
+.topic-post .topic-meta-data .post-infos {
+  color: var(--bd-ink);
+}
+
+.topic-post .topic-meta-data .names span a,
+.topic-post .topic-meta-data .names .first a,
+.topic-post .topic-meta-data .names .username a {
+  color: var(--bd-red);
+  font-weight: 800;
+}
+
+.topic-post .topic-meta-data .names .full-name,
+.topic-post .topic-meta-data .names .user-title,
+.topic-post .post-info a,
+.topic-post .post-info .relative-date,
+.topic-post .read-state {
+  color: var(--bd-muted-ink);
+}
+
+.topic-post .cooked a,
+.topic-map a,
+.post-notice a,
+.small-action a {
+  color: var(--bd-red);
+}
+
+.topic-post .cooked blockquote,
+.topic-post .cooked aside.quote,
+.topic-post .cooked .onebox,
+.topic-post .cooked pre,
+.topic-post .cooked code,
+.topic-post .cooked table {
+  color: var(--bd-ink);
+  background: rgba(10, 32, 71, 0.065);
+  border-color: rgba(10, 32, 71, 0.18);
+}
+
+.topic-post .cooked blockquote,
+.topic-post .cooked aside.quote {
+  border-left: 5px solid var(--bd-red);
+  border-radius: 6px;
+}
+
+.topic-post .cooked hr {
+  border-color: rgba(10, 32, 71, 0.2);
+}
+
+.topic-post .post-controls .actions button,
+.topic-post .post-controls .actions .btn,
+.topic-footer-main-buttons .btn,
+.topic-admin-menu-button-container .btn {
+  color: var(--bd-navy);
+  background: var(--bd-gold);
+  border: 1px solid var(--bd-dark-gold);
+  border-radius: 6px;
+}
+
+.topic-post .post-controls .actions button:hover,
+.topic-post .post-controls .actions button:focus,
+.topic-post .post-controls .actions .btn:hover,
+.topic-footer-main-buttons .btn:hover {
+  color: var(--bd-cream);
+  background: var(--bd-red);
+  border-color: var(--bd-red-dark);
+}
+
+.timeline-container .topic-timeline .timeline-scrollarea {
+  border-left-color: rgba(212, 168, 60, 0.5);
+}
+
+.timeline-container .topic-timeline .timeline-handle,
+.timeline-container .topic-timeline .timeline-scroller-content {
+  color: var(--bd-cream);
+}
+
+/* Standard panels, user pages, search, groups, badges and static pages. */
+.user-main .about,
+.user-main .user-content,
+.user-main .user-primary-navigation,
+.user-main .user-secondary-navigation,
+.user-card,
+.group-details-container,
+.group-members-container,
+.badges-page,
+.static-page,
+.search-container,
+.search-advanced,
+.invites-show,
+.login-welcome,
+.discourse-welcome-topic-banner,
+.alert.alert-info,
+.alert.alert-success,
+.alert.alert-error,
+.alert.alert-warning,
+.admin-notice,
+.reviewable-item,
+.dashboard-next,
+.dashboard-next .section,
+.admin-container {
+  color: var(--bd-ink);
+  background: rgba(255, 250, 240, 0.97);
+  border-color: rgba(212, 168, 60, 0.65);
+}
+
+.user-main .about,
+.user-main .user-content,
+.user-card,
+.group-details-container,
+.group-members-container,
+.static-page,
+.search-advanced,
+.login-welcome,
+.discourse-welcome-topic-banner,
+.reviewable-item {
+  border: 1px solid rgba(212, 168, 60, 0.68);
+  border-radius: 9px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.user-main .about a,
+.user-main .user-content a,
+.user-card a,
+.group-details-container a,
+.group-members-container a,
+.static-page a,
+.search-container a,
+.badges-page a {
+  color: var(--bd-red);
+}
+
+.user-main .about h1,
+.user-main .about h2,
+.user-main .user-content h1,
+.user-main .user-content h2,
+.group-details-container h1,
+.group-details-container h2,
+.static-page h1,
+.static-page h2,
+.search-container h1,
+.search-container h2 {
+  color: var(--bd-navy);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Forms, menus, popovers and modal surfaces. */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="url"],
+textarea,
+.select-kit .select-kit-header,
+.select-kit .select-kit-body,
+.select-kit .select-kit-row,
+.menu-panel,
+.user-menu .quick-access-panel,
+.search-menu .search-input,
+.search-menu .results,
+.d-editor-textarea-wrapper,
+.d-editor-preview,
+.composer-popup,
+.composer-fields,
+.d-modal__container,
+.modal-inner-container,
+.dialog-body,
+.popup-menu {
+  color: var(--bd-ink);
+  background: var(--bd-cream-soft);
+  border-color: var(--bd-border);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="url"],
+textarea,
+.select-kit .select-kit-header,
+.d-editor-textarea-wrapper,
+.d-modal__container,
+.modal-inner-container {
+  border-radius: 7px;
+}
+
+input:focus,
+textarea:focus,
+.select-kit .select-kit-header:focus,
+.d-editor-textarea-wrapper.in-focus {
+  border-color: var(--bd-red);
+  box-shadow: 0 0 0 3px rgba(169, 31, 45, 0.18);
+}
+
+.select-kit .select-kit-row.is-highlighted,
+.select-kit .select-kit-row:hover,
+.menu-panel li a:hover,
+.menu-panel li button:hover,
+.user-menu .quick-access-panel li:hover {
+  color: var(--bd-cream);
+  background: var(--bd-navy);
+}
+
+.select-kit .select-kit-row.is-selected {
+  color: var(--bd-cream);
+  background: var(--bd-red);
+}
+
+.d-modal__header,
+.modal-header,
+.dialog-header {
+  color: var(--bd-cream);
+  background: var(--bd-navy);
+  border-bottom-color: var(--bd-gold);
+}
+
+.d-modal__body,
+.modal-body,
+.dialog-body,
+.d-modal__footer,
+.modal-footer {
+  color: var(--bd-ink);
+  background: var(--bd-cream-soft);
+}
+
+/* Composer. */
+#reply-control {
+  color: var(--bd-ink);
+  background: var(--bd-cream-soft);
+  border-top: 2px solid var(--bd-gold);
+  box-shadow: 0 -12px 30px rgba(0, 0, 0, 0.28);
+}
+
+#reply-control .grippie,
+#reply-control .composer-controls,
+#reply-control .composer-action-title,
+#reply-control .title-and-category {
+  color: var(--bd-ink);
+}
+
+#reply-control .d-editor-button-bar {
+  background: rgba(10, 32, 71, 0.07);
+  border-bottom-color: rgba(10, 32, 71, 0.16);
+}
+
+#reply-control .d-editor-button-bar .btn {
+  color: var(--bd-navy);
+}
+
+/* Buttons and pagination. */
+.btn,
+.btn-default,
+.btn-flat,
+.btn-icon,
+.btn-text {
+  border-radius: 6px;
+}
+
+.btn-primary,
+.btn.btn-primary,
+.create-account,
+.topic-footer-main-buttons .btn-primary {
+  color: var(--bd-cream);
+  background: linear-gradient(180deg, var(--bd-red), var(--bd-red-dark));
+  border-color: var(--bd-gold);
+  font-weight: 800;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn.btn-primary:hover,
+.btn.btn-primary:focus {
+  color: var(--bd-cream);
+  background: var(--bd-red-dark);
+}
+
+.btn-default,
+.btn.btn-default,
+.btn-flat,
+.btn-icon,
+.btn-text {
+  color: var(--bd-navy);
+}
+
+.btn-default:not(.disabled),
+.btn.btn-default:not(.disabled) {
+  background: var(--bd-gold);
+  border-color: var(--bd-dark-gold);
+}
+
+.btn-default:hover,
+.btn-default:focus,
+.btn.btn-default:hover,
+.btn.btn-default:focus {
+  color: var(--bd-cream);
+  background: var(--bd-red);
+}
+
+.btn-danger,
+.btn.btn-danger {
+  color: var(--bd-cream);
+  background: var(--bd-red);
+}
+
+.pagination .page-link,
+.pagination .page-numbers,
+.topic-navigation .nav-pills > li > a {
+  color: var(--bd-navy);
+  background: var(--bd-cream);
+  border-color: var(--bd-border);
+  border-radius: 5px;
+}
+
+.pagination .active .page-link,
+.pagination .page-link.active,
+.pagination .page-numbers.current {
+  color: var(--bd-cream);
+  background: var(--bd-red);
+}
+
+/* Sidebar in modern Discourse layouts. */
+.sidebar-wrapper,
+.sidebar-container {
+  color: var(--bd-cream);
+  background: rgba(6, 18, 38, 0.84);
+  border-color: rgba(212, 168, 60, 0.35);
+}
+
+.sidebar-section-link-wrapper .sidebar-section-link,
+.sidebar-section-header-wrapper .sidebar-section-header,
+.sidebar-more-section-links-details-summary,
+.sidebar-footer-wrapper .sidebar-footer-container {
+  color: var(--bd-cream);
+}
+
+.sidebar-section-link-wrapper .sidebar-section-link:hover,
+.sidebar-section-link-wrapper .sidebar-section-link:focus,
+.sidebar-section-link-wrapper .sidebar-section-link.active,
+.sidebar-section-link-wrapper .sidebar-section-link.--active {
+  color: var(--bd-gold);
+  background: rgba(245, 233, 205, 0.09);
+}
+
+.sidebar-section-link-wrapper .sidebar-section-link .d-icon,
+.sidebar-section-header-wrapper .sidebar-section-header .d-icon {
+  color: var(--bd-gold);
+}
+
+
+/* Use Baseball Digest home/profile shortcuts in the header row and hide the duplicate native avatar icon. */
+.d-header-icons .header-dropdown-toggle.current-user,
+.d-header-icons .current-user {
+  display: none;
+}
+
+/* Footer. */
+.bd-theme-footer {
+  margin-top: 24px;
+  color: rgba(245, 233, 205, 0.78);
+  background: rgba(2, 7, 17, 0.6);
+  border-top: 1px solid rgba(212, 168, 60, 0.35);
+}
+
+.bd-theme-footer__inner {
+  padding: 15px 10px 18px;
+  font-size: 0.78rem;
+  text-align: center;
+}
+
+/* Discourse loading and empty states. */
+.loading-container,
+.empty-state,
+.empty-state .empty-state-body,
+.alert {
+  border-radius: 8px;
+}
+
+.empty-state {
+  color: var(--bd-ink);
+  background: rgba(245, 233, 205, 0.97);
+  border: 1px solid var(--bd-border);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

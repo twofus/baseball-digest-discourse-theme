@@ -1,0 +1,32 @@
+/* Desktop-only refinements. */
+
+#main-outlet {
+  padding-top: 1.35em;
+  padding-bottom: 2.2em;
+}
+
+body.has-sidebar-page #main-outlet-wrapper {
+  padding-inline: 14px;
+}
+
+.topic-list,
+.category-list,
+.directory-table {
+  margin-bottom: 1.15rem;
+}
+
+.topic-post {
+  margin-bottom: 1rem;
+}
+
+.topic-post article.boxed > .row {
+  min-height: 132px;
+}
+
+.topic-post .topic-avatar {
+  padding-inline: 14px;
+}
+
+.category-boxes {
+  gap: 15px;
+}

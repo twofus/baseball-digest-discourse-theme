@@ -1,0 +1,133 @@
+/* Mobile-view refinements. These complement responsive rules in common.scss. */
+
+body {
+  background-attachment: scroll;
+}
+
+.d-header .wrap,
+.bd-theme-masthead__inner,
+.bd-theme-footer__inner,
+body:not(.has-sidebar-page) #main-outlet {
+  width: calc(100% - 16px);
+}
+
+.bd-theme-masthead__inner {
+  padding-top: 10px;
+}
+
+.bd-theme-header-shortcuts {
+  gap: 12px;
+  margin-left: 8px;
+}
+
+.bd-theme-header-shortcut {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+}
+
+.bd-theme-header-shortcut__icon {
+  width: 23px;
+  height: 23px;
+}
+
+.bd-theme-community-title {
+  font-size: clamp(1.75rem, 8vw, 2.7rem);
+}
+
+.bd-theme-community-copy p {
+  font-size: 0.84rem;
+}
+
+.bd-theme-home-welcome {
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+.bd-theme-home-welcome__copy {
+  padding: 16px;
+}
+
+.bd-theme-home-welcome__actions {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 12px;
+  border-top: 1px solid rgba(10, 32, 71, 0.15);
+  border-left: 0;
+}
+
+.bd-theme-action {
+  min-height: 42px;
+  padding-inline: 8px;
+  font-size: 0.74rem;
+}
+
+#main-outlet {
+  padding-top: 0.8em;
+  padding-bottom: 1.5em;
+}
+
+.topic-list,
+.category-list,
+.directory-table,
+.topic-post article.boxed,
+.topic-map,
+.user-main .about,
+.user-main .user-content,
+.static-page,
+.search-advanced {
+  border-radius: 8px;
+}
+
+.topic-list-header th,
+.category-list th,
+.directory-table th {
+  font-size: 0.68rem;
+}
+
+.topic-list-item,
+.category-list tbody tr,
+.latest-topic-list-item {
+  font-size: 0.9rem;
+}
+
+.topic-post .topic-avatar {
+  background: rgba(10, 32, 71, 0.045);
+}
+
+.topic-post .topic-body {
+  padding-inline: 10px;
+}
+
+.topic-post .cooked {
+  font-size: 0.95rem;
+}
+
+.bd-theme-footer__inner {
+  padding-bottom: 22px;
+}
+
+@media (max-width: 390px) {
+  .bd-theme-header-shortcuts {
+    gap: 10px;
+    margin-left: 6px;
+  }
+
+  .bd-theme-header-shortcut {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+  }
+
+  .bd-theme-header-shortcut__icon {
+    width: 21px;
+    height: 21px;
+  }
+
+  .bd-theme-community-title {
+    font-size: 1.62rem;
+  }
+
+  .bd-theme-home-welcome__actions {
+    grid-template-columns: 1fr;
+  }
+}
