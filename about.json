@@ -1,0 +1,30 @@
+{
+  "name": "Baseball Digest Community",
+  "component": false,
+  "authors": "Grandstand Publishing LLC",
+  "theme_version": "1.0.1",
+  "about_url": "https://baseballdigest.com/",
+  "license_url": null,
+  "assets": {
+    "bd-logo": "assets/baseball-digest-logo.png",
+    "bd-home-icon": "assets/home-offwhite.svg",
+    "bd-profile-icon": "assets/profile-offwhite.svg"
+  },
+  "color_schemes": {
+    "Baseball Digest": {
+      "primary": "071429",
+      "secondary": "fffaf0",
+      "tertiary": "a91f2d",
+      "quaternary": "d4a83c",
+      "header_background": "0a2047",
+      "header_primary": "f5e9cd",
+      "highlight": "f5e9cd",
+      "danger": "a91f2d",
+      "success": "175e3b",
+      "love": "a91f2d"
+    }
+  },
+  "screenshots": [
+    "screenshots/dark.webp"
+  ]
+}
