@@ -47,7 +47,7 @@ Included:
 - Baseball Digest game-family colors and backgrounds
 - Personalized native header row
 - Search, Digital home and profile controls
-- Homepage welcome panel
+- Homepage welcome panel headed “Baseball Digest”
 - Cream/gold topic and category panels
 - Red/gold action states
 - Topic/post, composer, modal, search, profile, group, badge, sidebar, form and footer styling
@@ -65,6 +65,24 @@ Not included:
 The theme uses normal Discourse theme files, supported theme API initializers and a supported plugin-outlet connector. Discourse is updated frequently, so review the theme after major Discourse updates. The standard theme should remain available as a fallback.
 
 ## Version history
+
+### 1.0.9
+
+- Reissued the complete navigation/typography/footer update after only `about.json` reached GitHub in 1.0.8.
+- Added topic and profile breadcrumbs beginning with Forum Front Page.
+- Made unread topic titles black at 400 weight and Replies/Activity 500 weight.
+- Removed Powered by Discourse and the surrounding gold separators.
+- Added profile-page gutters and changed the welcome heading to Baseball Digest.
+
+### 1.0.8
+
+- Added clickable breadcrumbs above topic pages and member profiles, beginning with Forum Front Page.
+- Added category and current-page context to topic breadcrumbs.
+- Added a profile-page gutter so profile content no longer touches the content edge.
+- Changed forum-index topic titles to dark text at font weight 400.
+- Set Replies and Activity headings and values to font weight 500 without changing their colors.
+- Removed the Powered by Discourse promotion and its final separator.
+- Changed the homepage welcome heading to Baseball Digest.
 
 ### 1.0.7
 

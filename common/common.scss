@@ -1,6 +1,6 @@
 /*
  * Baseball Digest Community — Discourse theme
- * Version 1.0.7
+ * Version 1.0.9
  * Most selectors intentionally style stable Discourse building blocks rather
  * than replacing core templates or application behavior.
  */
@@ -303,6 +303,62 @@ body.navigation-top .bd-theme-home-welcome {
   border-color: var(--bd-dark-gold);
 }
 
+/* Clickable navigation trails for topics and member profiles. */
+.bd-theme-breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  width: calc(100% - 28px);
+  max-width: var(--bd-max-width);
+  min-height: 38px;
+  margin: 0 auto 14px;
+  padding: 8px 12px;
+  gap: 5px 8px;
+  color: rgba(245, 233, 205, 0.78);
+  background: rgba(2, 7, 17, 0.5);
+  border: 1px solid rgba(212, 168, 60, 0.6);
+  border-radius: 7px;
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.bd-theme-breadcrumbs__link,
+#main-outlet .bd-theme-breadcrumbs__link {
+  color: var(--bd-cream) !important;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.bd-theme-breadcrumbs__link:hover,
+.bd-theme-breadcrumbs__link:focus-visible,
+#main-outlet .bd-theme-breadcrumbs__link:hover,
+#main-outlet .bd-theme-breadcrumbs__link:focus-visible {
+  color: var(--bd-gold) !important;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.bd-theme-breadcrumbs__separator {
+  color: var(--bd-gold);
+  font-weight: 700;
+}
+
+.bd-theme-breadcrumbs__section {
+  color: rgba(245, 233, 205, 0.9);
+  font-weight: 500;
+}
+
+.bd-theme-breadcrumbs__current {
+  min-width: 0;
+  max-width: min(58vw, 650px);
+  overflow: hidden;
+  color: rgba(245, 233, 205, 0.72);
+  font-weight: 400;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 /* Main application width and page-level text. */
 #main-outlet-wrapper {
   box-sizing: border-box;
@@ -513,6 +569,39 @@ body:not(.has-sidebar-page) #main-outlet {
 .category-list .latest a {
   color: var(--bd-red);
   font-weight: 800;
+}
+
+/* Forum-index typography requested for topic titles and activity columns. */
+.topic-list .main-link a.title,
+.topic-list .link-top-line a.title,
+.latest-topic-list-item .main-link a {
+  font-weight: 400 !important;
+}
+
+/* Unread topics remain black, but use normal 400 weight instead of bold. */
+.topic-list-item.unread-posts .main-link a.title,
+.topic-list-item.unread-posts .link-top-line a.title,
+.topic-list-item.unseen-topic .main-link a.title,
+.topic-list-item.unseen-topic .link-top-line a.title,
+.latest-topic-list-item.unread-posts .main-link a,
+.latest-topic-list-item.unseen-topic .main-link a {
+  color: var(--bd-ink) !important;
+  font-weight: 400 !important;
+}
+
+.topic-list-header th.posts,
+.topic-list-header th.posts button,
+.topic-list-header th.activity,
+.topic-list-header th.activity button,
+.topic-list td.posts,
+.topic-list td.posts a,
+.topic-list td.activity,
+.topic-list td.activity a,
+.topic-list .posts-map,
+.topic-list .badge-posts,
+.topic-list .post-activity,
+.topic-list .age.activity {
+  font-weight: 500 !important;
 }
 
 .category-list .category-text-title,
@@ -726,6 +815,28 @@ body:not(.has-sidebar-page) #main-outlet {
 .search-container h2 {
   color: var(--bd-navy);
   font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Give member-profile pages a readable gutter inside the main content area. */
+#main-outlet .user-main {
+  box-sizing: border-box;
+  width: calc(100% - 32px);
+  max-width: calc(100% - 32px);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#main-outlet > .container:has(> .user-main) {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+}
+
+#main-outlet .user-main .about,
+#main-outlet .user-main .user-content,
+#main-outlet .user-main .user-primary-navigation,
+#main-outlet .user-main .user-secondary-navigation {
+  box-sizing: border-box;
 }
 
 /* Keep the Discourse administrator workspace readable on the cream surface. */
@@ -1112,12 +1223,47 @@ textarea:focus,
   }
 }
 
+/* Remove the hosted-platform promotion and the separators around it. */
+#main-outlet-wrapper > .powered-by-discourse,
+#main-outlet-wrapper > a.powered-by-discourse,
+a.powered-by-discourse,
+.powered-by-discourse,
+.powered-by-discourse__content {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  overflow: hidden !important;
+}
+
+html {
+  --powered-by-height: 0px !important;
+}
+
+#main-outlet > hr:last-of-type,
+#main-outlet > .container:last-child > hr:last-of-type,
+#main-outlet .user-main > hr:last-of-type,
+#main-outlet .new-user-wrapper > hr:last-of-type,
+#main-outlet .user-content > hr:last-of-type,
+#main-outlet .user-main + hr,
+#main-outlet-wrapper > hr {
+  display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
 /* Footer. */
 .bd-theme-footer {
   margin-top: 24px;
   color: rgba(245, 233, 205, 0.78);
   background: rgba(2, 7, 17, 0.6);
-  border-top: 1px solid rgba(212, 168, 60, 0.35);
+  border-top: 0 !important;
 }
 
 .bd-theme-footer__inner {
@@ -1138,6 +1284,23 @@ textarea:focus,
   color: var(--bd-ink);
   background: rgba(245, 233, 205, 0.97);
   border: 1px solid var(--bd-border);
+}
+
+@media (max-width: 700px) {
+  .bd-theme-breadcrumbs {
+    width: calc(100% - 16px);
+    margin-bottom: 10px;
+    padding: 7px 9px;
+    font-size: 0.72rem;
+  }
+
+  .bd-theme-breadcrumbs__current {
+    max-width: 48vw;
+  }
+
+  #main-outlet .user-main {
+    width: calc(100% - 16px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
