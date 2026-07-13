@@ -29,6 +29,7 @@ This repository contains the Communiteq/Discourse implementation of the Baseball
 - The large native Discourse welcome/search banner is suppressed by this theme.
 - A compact personalized `Welcome back, {name}!` message is displayed in the native header row on screens wider than 600px.
 - The native Chat icon and duplicate native profile avatar are hidden in the header.
+- When a topic title docks in the header, a curved return arrow links back to the forum home so it is not confused with the Baseball Digest Digital home icon.
 
 ## Design system
 
@@ -64,6 +65,13 @@ Not included:
 The theme uses normal Discourse theme files, supported theme API initializers and a supported plugin-outlet connector. Discourse is updated frequently, so review the theme after major Discourse updates. The standard theme should remain available as a fallback.
 
 ## Version history
+
+### 1.0.7
+
+- Increased contrast for administrator and community sidebar headings and links on the deep-navy background.
+- Changed category/tag dropdown text and topic-list column headings from blue to cream/gold on dark surfaces.
+- Changed the topic notification explanation below posts from blue to cream, with gold links.
+- Replaced the native docked-topic house icon with a curved left return arrow that leads to the forum home.
 
 ### 1.0.6
 

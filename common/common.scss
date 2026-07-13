@@ -1,6 +1,6 @@
 /*
  * Baseball Digest Community — Discourse theme
- * Version 1.0.6
+ * Version 1.0.7
  * Most selectors intentionally style stable Discourse building blocks rather
  * than replacing core templates or application behavior.
  */
@@ -983,6 +983,133 @@ textarea:focus,
 .d-header-icons .header-dropdown-toggle.current-user,
 .d-header-icons .current-user {
   display: none !important;
+}
+
+
+/* Improve contrast for links and labels placed directly on deep-navy surfaces. */
+.sidebar-wrapper,
+.sidebar-container,
+.sidebar-sections,
+.admin-area .sidebar-wrapper .admin-panel {
+  --d-sidebar-background: var(--bd-deep);
+  --d-sidebar-admin-background: var(--bd-deep);
+  --d-sidebar-header-color: var(--bd-gold);
+  --d-sidebar-header-icon-color: var(--bd-gold);
+  --d-sidebar-link-color: var(--bd-cream);
+  --d-sidebar-link-icon-color: var(--bd-gold);
+  --d-sidebar-link-badge-color: var(--bd-cream);
+  --d-sidebar-prefix-color: var(--bd-cream);
+  --d-sidebar-suffix-color: var(--bd-gold);
+  --d-sidebar-highlight-background: rgba(245, 233, 205, 0.1);
+  --d-sidebar-highlight-color: var(--bd-cream);
+  --d-sidebar-highlight-prefix-color: var(--bd-cream);
+  --d-sidebar-active-background: rgba(245, 233, 205, 0.12);
+  --d-sidebar-active-color: var(--bd-gold);
+  --d-sidebar-active-icon-color: var(--bd-gold);
+  --d-sidebar-section-border-color: rgba(245, 233, 205, 0.72);
+  --d-sidebar-border-color: rgba(245, 233, 205, 0.72);
+}
+
+.sidebar-wrapper .sidebar-section-link,
+.sidebar-wrapper .sidebar-section-link-content-text,
+.sidebar-wrapper .sidebar-section-link-content-badge,
+.sidebar-wrapper .sidebar-more-section-links-details-summary,
+.sidebar-wrapper .sidebar-footer-container,
+.admin-area .sidebar-wrapper .sidebar-section-link,
+.admin-area .sidebar-wrapper .sidebar-section-link-content-text {
+  color: var(--bd-cream) !important;
+}
+
+.sidebar-wrapper .sidebar-section-header,
+.sidebar-wrapper .sidebar-section-header-text,
+.sidebar-wrapper .sidebar-section-header-caret,
+.sidebar-wrapper .sidebar-section-header-caret .d-icon,
+.sidebar-wrapper .sidebar-section-header-button .d-icon,
+.admin-area .sidebar-wrapper .sidebar-section-header,
+.admin-area .sidebar-wrapper .sidebar-section-header-text,
+.admin-area .sidebar-wrapper .sidebar-section-header-caret .d-icon {
+  color: var(--bd-gold) !important;
+}
+
+.sidebar-wrapper .sidebar-section-link.active,
+.sidebar-wrapper .sidebar-section-link.--active,
+.sidebar-wrapper .sidebar-section-link.exact-url-match,
+.sidebar-wrapper .sidebar-section-link--active {
+  color: var(--bd-gold) !important;
+}
+
+/* Category and tag dropdowns sit directly on the dark forum background. */
+.list-controls .category-breadcrumb > li > .select-kit .select-kit-header,
+.list-controls .category-breadcrumb > li > .select-kit .select-kit-header .select-kit-header-wrapper,
+.list-controls .category-breadcrumb > li > .select-kit .select-kit-header .selected-name,
+.list-controls .category-breadcrumb > li > .select-kit .select-kit-header .name,
+.list-controls .category-breadcrumb > li > .select-kit .select-kit-header .d-button-label {
+  color: var(--bd-cream) !important;
+}
+
+.list-controls .category-breadcrumb > li > .select-kit .select-kit-header .d-icon,
+.list-controls .category-breadcrumb > li > .select-kit .select-kit-header .caret-icon {
+  color: var(--bd-gold) !important;
+}
+
+/* Keep all topic-list column labels readable against the navy header row. */
+.topic-list-header,
+.topic-list-header tr {
+  --d-topic-list-header-text-color: var(--bd-cream);
+}
+
+.topic-list-header th,
+.topic-list-header th *,
+.topic-list-header .topic-list-data,
+.topic-list-header .topic-list-data a,
+.topic-list-header .topic-list-data button,
+.topic-list-header .bulk-select,
+.topic-list-header .d-button-label {
+  color: var(--bd-cream) !important;
+}
+
+.topic-list-header .d-icon {
+  color: var(--bd-gold) !important;
+}
+
+/* Notification-level explanation shown below a topic. */
+#topic-footer-buttons,
+#topic-footer-buttons .topic-notifications-button .reason,
+#topic-footer-buttons .topic-notifications-button .reason .text,
+#topic-footer-buttons .topic-notifications-button .text,
+#topic-footer-buttons .pinned-button .reason,
+#topic-footer-buttons .pinned-button .reason .text {
+  color: var(--bd-cream) !important;
+}
+
+#topic-footer-buttons .topic-notifications-button .reason .text a,
+#topic-footer-buttons .topic-notifications-button .text a,
+#topic-footer-buttons .pinned-button .reason a {
+  color: var(--bd-gold) !important;
+}
+
+/* When a topic title docks in the header, distinguish the forum-home control
+ * from the separate Baseball Digest Digital home icon. */
+.bd-theme-forum-return-icon {
+  display: block;
+  width: 36px;
+  height: 36px;
+  background-image: url($bd-forum-return-icon);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.d-header .title.title--minimized a:hover .bd-theme-forum-return-icon,
+.d-header .title.title--minimized a:focus-visible .bd-theme-forum-return-icon {
+  filter: brightness(1.18);
+}
+
+@media (max-width: 600px) {
+  .bd-theme-forum-return-icon {
+    width: 31px;
+    height: 31px;
+  }
 }
 
 /* Footer. */
