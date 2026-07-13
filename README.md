@@ -47,7 +47,6 @@ Included:
 - Baseball Digest game-family colors and backgrounds
 - Personalized native header row
 - Search, Digital home and profile controls
-- Homepage welcome panel headed “Baseball Digest”
 - Cream/gold topic and category panels
 - Red/gold action states
 - Topic/post, composer, modal, search, profile, group, badge, sidebar, form and footer styling
@@ -65,6 +64,11 @@ Not included:
 The theme uses normal Discourse theme files, supported theme API initializers and a supported plugin-outlet connector. Discourse is updated frequently, so review the theme after major Discourse updates. The standard theme should remain available as a fallback.
 
 ## Version history
+
+### 1.0.10
+
+- Removed the large Baseball Digest front-page banner and its Start a Discussion/Browse Categories actions.
+- Removed the pale/white sidebar footer fade that appeared as a ghost strip above the sidebar footer controls.
 
 ### 1.0.9
 

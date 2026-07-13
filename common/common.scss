@@ -1,6 +1,6 @@
 /*
  * Baseball Digest Community — Discourse theme
- * Version 1.0.9
+ * Version 1.0.10
  * Most selectors intentionally style stable Discourse building blocks rather
  * than replacing core templates or application behavior.
  */
@@ -149,9 +149,10 @@ button {
   background: var(--bd-red);
 }
 
-/* Custom Baseball Digest masthead below the native Discourse utility bar. */
-.bd-theme-masthead {
-  color: var(--bd-cream);
+/* The custom front-page banner was removed in version 1.0.10. */
+.bd-theme-masthead,
+.bd-theme-home-welcome {
+  display: none !important;
 }
 
 .bd-theme-masthead__inner {
@@ -1119,6 +1120,19 @@ textarea:focus,
   --d-sidebar-active-icon-color: var(--bd-gold);
   --d-sidebar-section-border-color: rgba(245, 233, 205, 0.72);
   --d-sidebar-border-color: rgba(245, 233, 205, 0.72);
+  --d-sidebar-footer-fade: var(--bd-deep);
+}
+
+/* Remove the pale footer fade/ghost strip from the sidebar and chat sidebar. */
+.sidebar-footer-wrapper,
+.sidebar-footer-wrapper .sidebar-footer-container {
+  background: var(--bd-deep) !important;
+}
+
+.sidebar-footer-wrapper .sidebar-footer-container::before {
+  display: none !important;
+  content: none !important;
+  background: none !important;
 }
 
 .sidebar-wrapper .sidebar-section-link,
