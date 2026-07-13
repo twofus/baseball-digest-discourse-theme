@@ -1,6 +1,6 @@
 /*
  * Baseball Digest Community — Discourse theme
- * Version 1.0.5
+ * Version 1.0.6
  * Most selectors intentionally style stable Discourse building blocks rather
  * than replacing core templates or application behavior.
  */
@@ -726,6 +726,47 @@ body:not(.has-sidebar-page) #main-outlet {
 .search-container h2 {
   color: var(--bd-navy);
   font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Keep the Discourse administrator workspace readable on the cream surface. */
+body.admin-interface #main-outlet,
+body.admin-interface .admin-content,
+body.admin-interface .admin-contents {
+  color: var(--bd-ink);
+}
+
+body.admin-interface .admin-content {
+  box-sizing: border-box;
+  background: var(--bd-cream-soft);
+}
+
+body.admin-interface .admin-content > .admin-contents {
+  padding: 24px 28px 32px !important;
+}
+
+body.admin-interface #main-outlet .setting-label,
+body.admin-interface #main-outlet .control-label,
+body.admin-interface #main-outlet .heading,
+body.admin-interface #main-outlet .section-title,
+body.admin-interface #main-outlet label,
+body.admin-interface #main-outlet h1,
+body.admin-interface #main-outlet h2,
+body.admin-interface #main-outlet h3 {
+  color: var(--bd-ink) !important;
+  text-shadow: none;
+}
+
+body.admin-interface #main-outlet .desc,
+body.admin-interface #main-outlet .description,
+body.admin-interface #main-outlet .setting-description,
+body.admin-interface #main-outlet .help-text {
+  color: var(--bd-muted-ink);
+}
+
+@media (max-width: 700px) {
+  body.admin-interface .admin-content > .admin-contents {
+    padding: 16px !important;
+  }
 }
 
 /* Forms, menus, popovers and modal surfaces. */

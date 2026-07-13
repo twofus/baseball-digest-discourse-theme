@@ -65,6 +65,12 @@ The theme uses normal Discourse theme files, supported theme API initializers an
 
 ## Version history
 
+### 1.0.6
+
+- Changed administrator labels and prompts from pale cream to dark navy on the cream admin background.
+- Restored comfortable left and right padding inside the administrator content panel.
+- Added a smaller responsive admin padding value for narrow devices.
+
 ### 1.0.5
 
 - Restyled Search to use the same bordered icon button as Home and Profile.
