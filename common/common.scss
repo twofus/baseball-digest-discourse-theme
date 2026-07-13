@@ -1,6 +1,6 @@
 /*
  * Baseball Digest Community — Discourse theme
- * Version 1.0.0
+ * Version 1.0.2
  * Most selectors intentionally style stable Discourse building blocks rather
  * than replacing core templates or application behavior.
  */
@@ -135,8 +135,10 @@ button {
 .bd-theme-header-shortcuts {
   display: inline-flex;
   align-items: center;
+  align-self: stretch;
   gap: 14px;
   margin-left: 10px;
+  list-style: none;
 }
 
 .bd-theme-header-shortcut {

@@ -66,3 +66,9 @@ The theme uses normal Discourse theme files and CSS selectors; it does not repla
 - Added Baseball Digest home and profile shortcut icons into the top Discourse header row.
 - Hid the duplicate native avatar icon to avoid two profile icons.
 - Adjusted the header color to better match the navy site background.
+
+
+## Version 1.0.2
+- Moved the header shortcut JavaScript into the current Discourse API initializer path.
+- Uses the supported `api.headerIcons` interface to place the Baseball Digest Home and Profile icons in the native header.
+- Retains a harmless compatibility placeholder at the previous JavaScript path so browser-based repository replacement does not leave active legacy code.
