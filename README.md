@@ -23,7 +23,7 @@ This repository contains the Communiteq/Discourse implementation of the Baseball
 ## Header links and controls
 
 - Baseball Digest logo: controlled by the normal Discourse logo setting.
-- Search icon: `/search`.
+- Search icon: opens and closes the native Discourse search panel without leaving the current page.
 - Home icon: `https://baseballdigest.com/digital/`.
 - Profile icon: `/my/activity`.
 - The large native Discourse welcome/search banner is suppressed by this theme.
@@ -64,6 +64,13 @@ Not included:
 The theme uses normal Discourse theme files, supported theme API initializers and a supported plugin-outlet connector. Discourse is updated frequently, so review the theme after major Discourse updates. The standard theme should remain available as a fallback.
 
 ## Version history
+
+### 1.0.5
+
+- Restyled Search to use the same bordered icon button as Home and Profile.
+- Search now opens the native Discourse search panel without navigating away from the current page.
+- The Search button changes to a Close icon while the panel is open.
+- Search can be closed with the same button, Escape, or by clicking outside the panel.
 
 ### 1.0.4
 

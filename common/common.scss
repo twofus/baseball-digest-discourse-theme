@@ -1,6 +1,6 @@
 /*
  * Baseball Digest Community — Discourse theme
- * Version 1.0.4
+ * Version 1.0.5
  * Most selectors intentionally style stable Discourse building blocks rather
  * than replacing core templates or application behavior.
  */
@@ -168,56 +168,15 @@ button {
 }
 
 .bd-theme-header-search {
-  display: inline-grid;
-  place-items: center;
-  box-sizing: border-box;
-  width: 44px;
-  height: 44px;
-  min-width: 44px;
+  appearance: none;
   padding: 0;
-  color: var(--bd-cream);
-  background: transparent;
-  border: 0;
-  border-radius: 8px;
-  box-shadow: none;
+  font: inherit;
+  cursor: pointer;
 }
 
-.bd-theme-header-search .d-icon {
-  width: 27px;
-  height: 27px;
-  color: currentcolor;
-  font-size: 1.55rem;
-}
-
-/* Draw the search glyph locally so the theme does not depend on a
- * Discourse UI-kit component or icon-helper module. */
-.bd-theme-header-search__icon {
-  position: relative;
-  display: block !important;
-  box-sizing: border-box;
-  width: 19px !important;
-  height: 19px !important;
-  border: 3px solid currentcolor;
-  border-radius: 50%;
-}
-
-.bd-theme-header-search__icon::after {
-  content: "";
-  position: absolute;
-  right: -9px;
-  bottom: -6px;
-  width: 10px;
-  height: 3px;
-  border-radius: 999px;
-  background: currentcolor;
-  transform: rotate(45deg);
-  transform-origin: left center;
-}
-
-.bd-theme-header-search:hover,
-.bd-theme-header-search:focus-visible {
-  color: var(--bd-gold);
-  background: rgba(245, 233, 205, 0.1);
+.bd-theme-header-search[aria-expanded="true"] {
+  background: rgba(245, 233, 205, 0.14);
+  border-color: var(--bd-gold);
 }
 
 .bd-theme-header-shortcut {
@@ -251,6 +210,14 @@ button {
 
 .bd-theme-header-shortcut__icon--profile {
   background-image: url($bd-profile-icon);
+}
+
+.bd-theme-header-shortcut__icon--search {
+  background-image: url($bd-search-icon);
+}
+
+.bd-theme-header-shortcut__icon--close {
+  background-image: url($bd-close-icon);
 }
 
 .bd-theme-header-shortcut:hover,
@@ -970,7 +937,7 @@ textarea:focus,
 /* Use the Baseball Digest search/home/profile controls in the header row. */
 .welcome-banner,
 .floating-search-input-wrapper,
-.d-header-icons .search-dropdown,
+.d-header-icons > .header-dropdown-toggle.search-dropdown,
 .d-header-icons .chat-header-icon,
 .d-header-icons .header-dropdown-toggle.current-user,
 .d-header-icons .current-user {

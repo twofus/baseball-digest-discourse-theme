@@ -2,13 +2,15 @@
   "name": "Baseball Digest Community",
   "component": false,
   "authors": "Grandstand Publishing LLC",
-  "theme_version": "1.0.4",
+  "theme_version": "1.0.5",
   "about_url": "https://baseballdigest.com/",
   "license_url": null,
   "assets": {
     "bd-logo": "assets/baseball-digest-logo.png",
     "bd-home-icon": "assets/home-offwhite.svg",
-    "bd-profile-icon": "assets/profile-offwhite.svg"
+    "bd-profile-icon": "assets/profile-offwhite.svg",
+    "bd-search-icon": "assets/search-offwhite.svg",
+    "bd-close-icon": "assets/close-offwhite.svg"
   },
   "color_schemes": {
     "Baseball Digest": {
