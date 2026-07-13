@@ -2,7 +2,7 @@
   "name": "Baseball Digest Community",
   "component": false,
   "authors": "Grandstand Publishing LLC",
-  "theme_version": "1.0.2",
+  "theme_version": "1.0.3",
   "about_url": "https://baseballdigest.com/",
   "license_url": null,
   "assets": {
@@ -16,7 +16,7 @@
       "secondary": "fffaf0",
       "tertiary": "a91f2d",
       "quaternary": "d4a83c",
-      "header_background": "0a2047",
+      "header_background": "061226",
       "header_primary": "f5e9cd",
       "highlight": "f5e9cd",
       "danger": "a91f2d",

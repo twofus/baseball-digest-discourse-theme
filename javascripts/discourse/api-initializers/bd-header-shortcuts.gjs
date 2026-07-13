@@ -1,7 +1,15 @@
 import { apiInitializer } from "discourse/lib/api";
+import DButton from "discourse/ui-kit/d-button";
 
 const BaseballDigestHeaderShortcuts = <template>
   <li class="bd-theme-header-shortcuts">
+    <DButton
+      @href="/search"
+      @icon="magnifying-glass"
+      @title="search.title"
+      class="bd-theme-header-search icon btn-flat"
+    />
+
     <a
       class="bd-theme-header-shortcut"
       href="https://baseballdigest.com/digital/"
@@ -29,6 +37,10 @@ const BaseballDigestHeaderShortcuts = <template>
 </template>;
 
 export default apiInitializer((api) => {
+  // Replace the large Discourse welcome/search banner with the compact
+  // personalized greeting in the native header row.
+  api.registerValueTransformer("welcome-banner-display-for-route", () => false);
+
   api.headerIcons.add(
     "baseball-digest-shortcuts",
     BaseballDigestHeaderShortcuts,

@@ -1,12 +1,12 @@
 /*
  * Baseball Digest Community — Discourse theme
- * Version 1.0.2
+ * Version 1.0.3
  * Most selectors intentionally style stable Discourse building blocks rather
  * than replacing core templates or application behavior.
  */
 
 :root {
-  --bd-navy: #0a2047;
+  --bd-navy: #061226;
   --bd-deep: #061226;
   --bd-deeper: #020711;
   --bd-cream: #f5e9cd;
@@ -20,7 +20,7 @@
   --bd-ink: #071429;
   --bd-muted-ink: rgba(7, 20, 41, 0.7);
   --bd-border: rgba(155, 118, 40, 0.62);
-  --bd-soft-border: rgba(10, 32, 71, 0.16);
+  --bd-soft-border: rgba(6, 18, 38, 0.16);
   --bd-panel-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
   --bd-control-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
   --bd-max-width: 1180px;
@@ -56,14 +56,16 @@ button {
 
 /* Keep the standard Discourse utility header functional and recognizable. */
 .d-header-wrap {
-  background: rgba(10, 32, 71, 0.98);
-  border-bottom: 1px solid rgba(212, 168, 60, 0.5);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
+  background: var(--bd-deep) !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
 }
 
 .d-header {
   color: var(--bd-cream);
-  background: transparent;
+  background: var(--bd-deep) !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
 }
 
 .d-header .wrap,
@@ -94,6 +96,30 @@ button {
 .d-header .title img {
   max-height: 36px;
 }
+
+.d-header .contents {
+  position: relative;
+}
+
+.bd-theme-header-welcome {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  max-width: min(34vw, 360px);
+  padding: 0 0.75rem;
+  overflow: hidden;
+  color: var(--bd-cream);
+  font-size: clamp(0.74rem, 1.05vw, 0.94rem);
+  font-weight: 750;
+  line-height: 1.2;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
 
 .d-header-icons .icon:hover,
 .d-header-icons .icon:focus,
@@ -129,7 +155,7 @@ button {
 }
 
 .bd-theme-masthead__inner {
-  padding: 10px 0 4px;
+  padding: 16px 0 4px;
 }
 
 .bd-theme-header-shortcuts {
@@ -139,6 +165,34 @@ button {
   gap: 14px;
   margin-left: 10px;
   list-style: none;
+}
+
+.bd-theme-header-search {
+  display: inline-grid;
+  place-items: center;
+  box-sizing: border-box;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  padding: 0;
+  color: var(--bd-cream);
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.bd-theme-header-search .d-icon {
+  width: 27px;
+  height: 27px;
+  color: currentcolor;
+  font-size: 1.55rem;
+}
+
+.bd-theme-header-search:hover,
+.bd-theme-header-search:focus-visible {
+  color: var(--bd-gold);
+  background: rgba(245, 233, 205, 0.1);
 }
 
 .bd-theme-header-shortcut {
@@ -188,34 +242,6 @@ button {
   outline-offset: 3px;
 }
 
-.bd-theme-community-copy {
-  width: min(920px, 100%);
-  margin: 0 auto 16px;
-  text-align: center;
-}
-
-.bd-theme-community-title {
-  margin: 3px 0 5px;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2rem, 5.2vw, 3.65rem);
-  font-weight: 800;
-  line-height: 0.98;
-  text-transform: uppercase;
-  text-shadow: 0 3px 0 rgba(169, 31, 45, 0.65), 0 10px 20px rgba(0, 0, 0, 0.28);
-}
-
-.bd-theme-community-title a {
-  color: var(--bd-cream);
-  text-decoration: none;
-}
-
-.bd-theme-community-copy p {
-  margin: 0 auto;
-  color: rgba(245, 233, 205, 0.86);
-  font-size: 0.96rem;
-  line-height: 1.45;
-}
-
 /* Homepage welcome panel. Body route classes update automatically during SPA navigation. */
 .bd-theme-home-welcome {
   display: none;
@@ -263,8 +289,8 @@ body.navigation-top .bd-theme-home-welcome {
   align-content: center;
   gap: 8px;
   padding: 18px;
-  background: rgba(10, 32, 71, 0.08);
-  border-left: 1px solid rgba(10, 32, 71, 0.15);
+  background: rgba(6, 18, 38, 0.08);
+  border-left: 1px solid rgba(6, 18, 38, 0.15);
 }
 
 .bd-theme-action {
@@ -345,7 +371,7 @@ body:not(.has-sidebar-page) #main-outlet {
 .list-controls .combo-box .combo-box-header,
 .select-kit.single-select .select-kit-header {
   color: var(--bd-cream);
-  background: rgba(10, 32, 71, 0.91);
+  background: rgba(6, 18, 38, 0.91);
   border: 1px solid rgba(212, 168, 60, 0.5);
 }
 
@@ -447,7 +473,7 @@ body:not(.has-sidebar-page) #main-outlet {
 .category-list td,
 .directory-table td,
 .latest-topic-list-item {
-  border-bottom-color: rgba(10, 32, 71, 0.12);
+  border-bottom-color: rgba(6, 18, 38, 0.12);
 }
 
 .topic-list .main-link a.title,
@@ -513,7 +539,7 @@ body:not(.has-sidebar-page) #main-outlet {
 
 .category-boxes .category-box-heading {
   padding-bottom: 0.55rem;
-  border-bottom: 1px solid rgba(10, 32, 71, 0.16);
+  border-bottom: 1px solid rgba(6, 18, 38, 0.16);
 }
 
 /* Topic pages and posts. */
@@ -548,14 +574,14 @@ body:not(.has-sidebar-page) #main-outlet {
 }
 
 .topic-post .topic-avatar {
-  background: rgba(10, 32, 71, 0.06);
-  border-color: rgba(10, 32, 71, 0.16);
+  background: rgba(6, 18, 38, 0.06);
+  border-color: rgba(6, 18, 38, 0.16);
 }
 
 .topic-post .topic-body {
   color: var(--bd-ink);
   background: transparent;
-  border-color: rgba(10, 32, 71, 0.16);
+  border-color: rgba(6, 18, 38, 0.16);
 }
 
 .topic-post .cooked,
@@ -599,8 +625,8 @@ body:not(.has-sidebar-page) #main-outlet {
 .topic-post .cooked code,
 .topic-post .cooked table {
   color: var(--bd-ink);
-  background: rgba(10, 32, 71, 0.065);
-  border-color: rgba(10, 32, 71, 0.18);
+  background: rgba(6, 18, 38, 0.065);
+  border-color: rgba(6, 18, 38, 0.18);
 }
 
 .topic-post .cooked blockquote,
@@ -610,7 +636,7 @@ body:not(.has-sidebar-page) #main-outlet {
 }
 
 .topic-post .cooked hr {
-  border-color: rgba(10, 32, 71, 0.2);
+  border-color: rgba(6, 18, 38, 0.2);
 }
 
 .topic-post .post-controls .actions button,
@@ -807,8 +833,8 @@ textarea:focus,
 }
 
 #reply-control .d-editor-button-bar {
-  background: rgba(10, 32, 71, 0.07);
-  border-bottom-color: rgba(10, 32, 71, 0.16);
+  background: rgba(6, 18, 38, 0.07);
+  border-bottom-color: rgba(6, 18, 38, 0.16);
 }
 
 #reply-control .d-editor-button-bar .btn {
@@ -888,9 +914,10 @@ textarea:focus,
 
 /* Sidebar in modern Discourse layouts. */
 .sidebar-wrapper,
-.sidebar-container {
+.sidebar-container,
+.sidebar-sections {
   color: var(--bd-cream);
-  background: rgba(6, 18, 38, 0.84);
+  background: var(--bd-deep) !important;
   border-color: rgba(212, 168, 60, 0.35);
 }
 
@@ -915,10 +942,14 @@ textarea:focus,
 }
 
 
-/* Use Baseball Digest home/profile shortcuts in the header row and hide the duplicate native avatar icon. */
+/* Use the Baseball Digest search/home/profile controls in the header row. */
+.welcome-banner,
+.floating-search-input-wrapper,
+.d-header-icons .search-dropdown,
+.d-header-icons .chat-header-icon,
 .d-header-icons .header-dropdown-toggle.current-user,
 .d-header-icons .current-user {
-  display: none;
+  display: none !important;
 }
 
 /* Footer. */

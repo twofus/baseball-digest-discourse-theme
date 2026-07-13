@@ -1,33 +1,38 @@
 # Baseball Digest Community — Discourse Theme
 
-This is the Communiteq/Discourse implementation of the Baseball Digest forum design proof.
-It is a complete Discourse theme, not a phpBB style and not a plugin.
+This repository contains the Communiteq/Discourse implementation of the Baseball Digest Community forum theme. It is a complete Discourse theme, not a phpBB style and not a server-side plugin.
 
-## Install on Communiteq
+## Install from Git on Communiteq
 
-1. Sign in to `https://forum.baseballdigest.com` as the Discourse administrator.
+1. Sign in to `https://forum.baseballdigest.com` as a Discourse administrator.
 2. Open **Admin → Appearance → Themes & components → Themes**.
-3. Select **Install → From your device**.
-4. Upload `baseball-digest-discourse-theme.zip`.
-5. Open the installed theme and use **Preview** first.
-6. Test the forum index, categories, a topic, the composer, login, profile, search, and mobile view.
-7. Make it the default theme only after the preview is satisfactory.
-8. Keep the standard Discourse theme installed as a recovery option.
+3. Select **Install → From a Git repository**.
+4. Enter `https://github.com/twofus/baseball-digest-discourse-theme.git`.
+5. Use the `main` branch.
+6. Preview the theme before enabling it by default.
+7. Keep a standard Discourse theme installed as a recovery option.
 
-## Header links included
+## Update the installed theme
 
-- Baseball Digest logo: `https://baseballdigest.com/`
-- Subscribe: `https://join.baseballdigest.com/I3YANEWB`
-- Home icon: `https://baseballdigest.com/digital/`
-- Profile icon: `/my/activity` (Discourse redirects this to the current member's profile; unauthenticated visitors are asked to log in)
-- Community title: `/` (forum home)
+1. Commit and push theme changes to the GitHub repository.
+2. Open **Admin → Appearance → Themes & components**.
+3. Select **Baseball Digest Community**.
+4. Click **Check for updates** and then **Update to latest**.
+5. Hard-refresh the forum after the update if cached assets remain visible.
 
-The links and displayed text are in `common/after_header.html` and can be edited in the Discourse theme editor after import.
+## Header links and controls
+
+- Baseball Digest logo: controlled by the normal Discourse logo setting.
+- Search icon: `/search`.
+- Home icon: `https://baseballdigest.com/digital/`.
+- Profile icon: `/my/activity`.
+- The large native Discourse welcome/search banner is suppressed by this theme.
+- A compact personalized `Welcome back, {name}!` message is displayed in the native header row on screens wider than 600px.
+- The native Chat icon and duplicate native profile avatar are hidden in the header.
 
 ## Design system
 
-- Navy: `#0A2047`
-- Deep navy: `#061226`
+- Deep navy background: `#061226`
 - Cream: `#F5E9CD`
 - Gold: `#D4A83C`
 - Dark gold: `#9B7628`
@@ -38,15 +43,14 @@ The links and displayed text are in `common/after_header.html` and can be edited
 
 Included:
 
-- Baseball Digest logo/Subscribe/Home/Profile row
-- Centered Baseball Digest Community title and tagline
+- Baseball Digest game-family colors and backgrounds
+- Personalized native header row
+- Search, Digital home and profile controls
 - Homepage welcome panel
-- Dark navy game-family background
 - Cream/gold topic and category panels
-- Navy list headers and red/gold action states
+- Red/gold action states
 - Topic/post, composer, modal, search, profile, group, badge, sidebar, form and footer styling
 - Desktop, medium and small-device behavior
-- Theme screenshots shown in Discourse's theme manager
 
 Not included:
 
@@ -57,18 +61,26 @@ Not included:
 
 ## Maintenance
 
-The theme uses normal Discourse theme files and CSS selectors; it does not replace core Ember templates or authentication behavior. Discourse is updated frequently, so review the theme after major Discourse updates. The standard theme should remain available as a fallback.
+The theme uses normal Discourse theme files, supported theme API initializers and a supported plugin-outlet connector. Discourse is updated frequently, so review the theme after major Discourse updates. The standard theme should remain available as a fallback.
 
+## Version history
 
-## Version 1.0.1
-- Removed the duplicate secondary logo row.
-- Removed the subscribe button from the custom masthead.
-- Added Baseball Digest home and profile shortcut icons into the top Discourse header row.
-- Hid the duplicate native avatar icon to avoid two profile icons.
-- Adjusted the header color to better match the navy site background.
+### 1.0.3
 
+- Removed the large Discourse welcome/search banner.
+- Added a compact personalized welcome message to the native logo row.
+- Added Search to the Baseball Digest header controls.
+- Removed the native Chat icon.
+- Removed the large Baseball Digest Community masthead title and description.
+- Changed the header/sidebar navy treatment from `#0A2047` to `#061226`.
+- Removed the line and shadow beneath the logo row.
 
-## Version 1.0.2
+### 1.0.2
+
 - Moved the header shortcut JavaScript into the current Discourse API initializer path.
-- Uses the supported `api.headerIcons` interface to place the Baseball Digest Home and Profile icons in the native header.
-- Retains a harmless compatibility placeholder at the previous JavaScript path so browser-based repository replacement does not leave active legacy code.
+- Used the supported `api.headerIcons` interface for the Baseball Digest header controls.
+
+### 1.0.1
+
+- Removed the duplicate secondary logo row and Subscribe button.
+- Added Baseball Digest Home and Profile shortcuts to the native header.
