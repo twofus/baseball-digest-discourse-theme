@@ -5,7 +5,7 @@ export default class BaseballDigestHeaderWelcome extends Component {
   @service currentUser;
 
   static shouldRender(outletArgs) {
-    return !outletArgs.topicInfoVisible;
+    return !outletArgs?.topicInfoVisible;
   }
 
   get displayName() {

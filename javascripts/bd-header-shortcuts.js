@@ -1,4 +1,4 @@
-// Compatibility placeholder for theme version 1.0.3.
+// Compatibility placeholder for theme version 1.0.4.
 // Active header integration:
 // javascripts/discourse/api-initializers/bd-header-shortcuts.gjs
 // Personalized header greeting:

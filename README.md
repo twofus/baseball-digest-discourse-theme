@@ -65,6 +65,13 @@ The theme uses normal Discourse theme files, supported theme API initializers an
 
 ## Version history
 
+### 1.0.4
+
+- Removed the incompatible `discourse/ui-kit/d-button` import.
+- Replaced the search control with a plain theme link and a CSS-drawn search glyph.
+- Removed the value-transformer dependency; CSS continues to suppress the large welcome/search banner.
+- Added a defensive check to the personalized header connector.
+
 ### 1.0.3
 
 - Removed the large Discourse welcome/search banner.

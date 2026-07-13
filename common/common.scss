@@ -1,6 +1,6 @@
 /*
  * Baseball Digest Community — Discourse theme
- * Version 1.0.3
+ * Version 1.0.4
  * Most selectors intentionally style stable Discourse building blocks rather
  * than replacing core templates or application behavior.
  */
@@ -187,6 +187,31 @@ button {
   height: 27px;
   color: currentcolor;
   font-size: 1.55rem;
+}
+
+/* Draw the search glyph locally so the theme does not depend on a
+ * Discourse UI-kit component or icon-helper module. */
+.bd-theme-header-search__icon {
+  position: relative;
+  display: block !important;
+  box-sizing: border-box;
+  width: 19px !important;
+  height: 19px !important;
+  border: 3px solid currentcolor;
+  border-radius: 50%;
+}
+
+.bd-theme-header-search__icon::after {
+  content: "";
+  position: absolute;
+  right: -9px;
+  bottom: -6px;
+  width: 10px;
+  height: 3px;
+  border-radius: 999px;
+  background: currentcolor;
+  transform: rotate(45deg);
+  transform-origin: left center;
 }
 
 .bd-theme-header-search:hover,
