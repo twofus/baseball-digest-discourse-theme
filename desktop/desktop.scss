@@ -1,32 +1,42 @@
-/* Desktop-only refinements. */
+/* Desktop-only compact-board refinements. */
 
 #main-outlet {
-  padding-top: 1.35em;
-  padding-bottom: 2.2em;
+  padding-top: 14px;
+  padding-bottom: 20px;
 }
 
 body.has-sidebar-page #main-outlet-wrapper {
-  padding-inline: 14px;
+  padding-inline: 10px;
 }
 
 .topic-list,
 .category-list,
 .directory-table {
-  margin-bottom: 1.15rem;
+  margin-bottom: 12px;
 }
 
-.topic-post {
-  margin-bottom: 1rem;
+.topic-list-item .main-link,
+.topic-list-item .link-top-line {
+  line-height: 1.25;
 }
 
 .topic-post article.boxed > .row {
-  min-height: 132px;
+  min-height: 0;
 }
 
 .topic-post .topic-avatar {
-  padding-inline: 14px;
+  padding-inline: 10px;
 }
 
 .category-boxes {
-  gap: 15px;
+  gap: 8px;
+}
+
+/* Keep compact controls aligned on one line until the viewport truly narrows. */
+.navigation-container {
+  min-height: 34px;
+}
+
+.navigation-controls {
+  gap: 4px;
 }

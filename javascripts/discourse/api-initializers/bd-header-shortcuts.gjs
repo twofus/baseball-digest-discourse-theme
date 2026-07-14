@@ -6,6 +6,7 @@ import { apiInitializer } from "discourse/lib/api";
 
 class BaseballDigestHeaderShortcuts extends Component {
   @service search;
+  @service currentUser;
 
   @action
   toggleSearch(event) {
@@ -54,17 +55,19 @@ class BaseballDigestHeaderShortcuts extends Component {
         ></span>
       </a>
 
-      <a
-        class="bd-theme-header-shortcut"
-        href="/my/activity"
-        aria-label="Your forum profile"
-        title="Your forum profile"
-      >
-        <span
-          class="bd-theme-header-shortcut__icon bd-theme-header-shortcut__icon--profile"
-          aria-hidden="true"
-        ></span>
-      </a>
+      {{#if this.currentUser}}
+        <a
+          class="bd-theme-header-shortcut"
+          href="/my/activity"
+          aria-label="Your forum profile"
+          title="Your forum profile"
+        >
+          <span
+            class="bd-theme-header-shortcut__icon bd-theme-header-shortcut__icon--profile"
+            aria-hidden="true"
+          ></span>
+        </a>
+      {{/if}}
     </li>
   </template>
 }

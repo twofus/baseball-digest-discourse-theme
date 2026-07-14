@@ -1,144 +1,330 @@
-/* Mobile-view refinements. These complement responsive rules in common.scss. */
+/* Mobile compact-board refinements. */
+
+:root {
+  --main-outlet-padding-top: 8px;
+  --main-outlet-padding-bottom: 14px;
+}
 
 body {
-  background-attachment: scroll;
+  background: var(--bd-deep);
+}
+
+.d-header,
+.d-header > .wrap,
+.d-header .contents {
+  height: 56px;
+  min-height: 56px;
 }
 
 .d-header .wrap,
-.bd-theme-masthead__inner,
 .bd-theme-footer__inner,
 body:not(.has-sidebar-page) #main-outlet {
-  width: calc(100% - 16px);
+  width: calc(100% - 12px);
 }
 
-.bd-theme-masthead__inner {
-  padding-top: 10px;
+.d-header .title {
+  --d-logo-height: 29px;
+}
+
+.d-header #site-logo,
+.d-header .title img {
+  max-height: 29px;
+}
+
+.header-sidebar-toggle button,
+.d-header-icons .icon,
+.bd-theme-header-shortcut,
+.d-header .title.title--minimized a {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+}
+
+.header-sidebar-toggle button {
+  margin-right: 5px;
 }
 
 .bd-theme-header-shortcuts {
-  gap: 12px;
-  margin-left: 8px;
+  gap: 5px;
+  margin-left: 5px;
 }
 
-.bd-theme-header-shortcut {
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
+.bd-theme-header-shortcut__icon {
+  width: 18px;
+  height: 18px;
 }
 
-.bd-theme-header-shortcut__icon,
-.bd-theme-header-search .d-icon {
-  width: 23px;
-  height: 23px;
-}
-
-.bd-theme-header-search {
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-}
-
-.bd-theme-header-welcome {
-  max-width: 30vw;
-  padding-inline: 0.35rem;
-  font-size: 0.72rem;
-}
-
-
-.bd-theme-home-welcome {
-  grid-template-columns: 1fr;
-  gap: 0;
-}
-
-.bd-theme-home-welcome__copy {
-  padding: 16px;
-}
-
-.bd-theme-home-welcome__actions {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  padding: 12px;
-  border-top: 1px solid rgba(6, 18, 38, 0.15);
-  border-left: 0;
-}
-
-.bd-theme-action {
-  min-height: 42px;
-  padding-inline: 8px;
+.d-header .header-buttons .btn,
+.d-header .login-button,
+.d-header .sign-up-button {
+  min-height: 30px;
+  padding: 4px 8px;
   font-size: 0.74rem;
 }
 
-#main-outlet {
-  padding-top: 0.8em;
-  padding-bottom: 1.5em;
+.bd-theme-header-welcome {
+  display: none;
 }
 
+#main-outlet {
+  padding-top: 8px;
+  padding-bottom: 14px;
+}
+
+/* Compact, horizontally scrollable navigation instead of wrapped button blocks. */
+.navigation-container {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 3px;
+  overflow-x: auto;
+  padding-bottom: 3px;
+  scrollbar-width: thin;
+}
+
+#navigation-bar,
+.nav-pills {
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.nav-pills > li > a,
+.nav-pills > li > button,
+.list-controls .nav-pills > li > a {
+  min-height: 30px;
+  padding: 5px 7px;
+  font-size: 0.78rem;
+}
+
+.category-breadcrumb .select-kit-header,
+.list-controls .combo-box .combo-box-header,
+.select-kit.single-select .select-kit-header,
+.navigation-controls .btn,
+#create-topic,
+.navigation-controls .create-topic {
+  min-height: 30px;
+  padding: 4px 7px;
+  font-size: 0.76rem;
+}
+
+/* The native mobile topic list becomes one compact row per topic. */
 .topic-list,
 .category-list,
 .directory-table,
-.topic-post article.boxed,
-.topic-map,
-.user-main .about,
-.user-main .user-content,
-.static-page,
-.search-advanced {
-  border-radius: 8px;
-}
-
-.topic-list-header th,
-.category-list th,
-.directory-table th {
-  font-size: 0.68rem;
+.latest-topic-list,
+.top-topic-list {
+  border-radius: 1px;
 }
 
 .topic-list-item,
 .category-list tbody tr,
 .latest-topic-list-item {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
+}
+
+.topic-list-item td.topic-list-data {
+  padding: 9px 10px;
+}
+
+.topic-list-item .pull-left {
+  display: none;
+}
+
+.topic-list-item .topic-item-metadata.right {
+  width: 100%;
+  margin-left: 0;
+}
+
+.topic-list-item .main-link,
+.topic-list-item .link-top-line {
+  margin: 0;
+  line-height: 1.22;
+}
+
+.topic-list .main-link a.title,
+.topic-list .link-top-line a.title,
+.latest-topic-list-item .main-link a {
+  font-size: 0.98rem;
+}
+
+.topic-list-item .topic-item-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 4px;
+  color: var(--bd-muted-ink);
+  font-size: 0.72rem;
+}
+
+.topic-list-item .topic-item-stats__category-tags {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.topic-list-item .num.activity.last {
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
+.topic-list .topic-excerpt,
+.latest-topic-list-item .topic-excerpt,
+.topic-list .excerpt,
+.topic-list .read-more {
+  display: none !important;
+}
+
+.category-list .category-description,
+.category-boxes .description {
+  font-size: 0.76rem;
+  line-height: 1.3;
+}
+
+.category-boxes .category-box-inner {
+  padding: 9px 10px;
+}
+
+.bd-theme-breadcrumbs {
+  width: calc(100% - 12px);
+  margin-bottom: 6px;
+  padding-bottom: 5px;
+  font-size: 0.7rem;
+}
+
+.bd-theme-breadcrumbs__current {
+  max-width: 54vw;
+}
+
+.topic-title h1,
+#topic-title h1,
+#main-outlet .fancy-title {
+  font-size: 1.24rem;
+}
+
+.topic-post {
+  margin-bottom: 6px;
+}
+
+.topic-post article.boxed,
+.topic-map,
+.post-notice,
+.suggested-topics-wrapper,
+.more-topics__container,
+.user-main .about,
+.user-main .user-content,
+.static-page,
+.search-advanced {
+  border-radius: 1px;
 }
 
 .topic-post .topic-avatar {
-  background: rgba(6, 18, 38, 0.045);
+  padding: 7px;
+}
+
+.topic-post .topic-avatar img.avatar {
+  width: 30px;
+  height: 30px;
 }
 
 .topic-post .topic-body {
-  padding-inline: 10px;
+  padding: 8px 9px;
 }
 
 .topic-post .cooked {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.topic-post .topic-meta-data {
+  font-size: 0.72rem;
+}
+
+.topic-footer-main-buttons .btn,
+.topic-admin-menu-button-container .btn,
+.topic-notifications-button .btn {
+  min-height: 30px;
+  padding: 4px 7px;
+  font-size: 0.76rem;
+}
+
+.user-main,
+body[class*="user-"] #main-outlet > .container,
+body.user-page #main-outlet > .container {
+  width: calc(100% - 12px);
+}
+
+.user-main .about .details {
+  padding: 9px;
+}
+
+.user-main .user-profile-names__primary {
+  font-size: 1.15rem;
+}
+
+.user-main .nav-pills {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.user-main .nav-pills > li > a,
+.user-main .nav-pills > li > button {
+  min-height: 30px;
+  padding: 5px 7px;
+  font-size: 0.74rem;
+}
+
+.sidebar-wrapper,
+.sidebar-container,
+.sidebar-sections {
+  --d-sidebar-row-height: 2.05em;
+}
+
+.sidebar-wrapper .sidebar-section-link,
+.sidebar-wrapper .sidebar-section-link-content-text,
+.sidebar-wrapper .sidebar-section-link-content-badge {
+  font-size: 0.82rem;
 }
 
 .bd-theme-footer__inner {
-  padding-bottom: 22px;
+  padding: 10px 6px 12px;
+  font-size: 0.68rem;
 }
 
 @media (max-width: 390px) {
-  .bd-theme-header-shortcuts {
-    gap: 10px;
-    margin-left: 6px;
+  .d-header .title {
+    --d-logo-height: 26px;
   }
 
+  .d-header #site-logo,
+  .d-header .title img {
+    max-height: 26px;
+  }
+
+  .header-sidebar-toggle button,
+  .d-header-icons .icon,
   .bd-theme-header-shortcut,
-  .bd-theme-header-search {
-    width: 38px;
-    height: 38px;
-    min-width: 38px;
+  .d-header .title.title--minimized a {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
   }
 
-  .bd-theme-header-shortcut__icon,
-  .bd-theme-header-search .d-icon {
-    width: 21px;
-    height: 21px;
+  .bd-theme-header-shortcuts {
+    gap: 4px;
+    margin-left: 4px;
   }
 
-  .bd-theme-home-welcome__actions {
-    grid-template-columns: 1fr;
+  .bd-theme-header-shortcut__icon {
+    width: 17px;
+    height: 17px;
   }
-}
 
-
-@media (max-width: 600px) {
-  .bd-theme-header-welcome {
-    display: none;
+  .d-header .login-button .d-button-label,
+  .d-header .sign-up-button .d-button-label {
+    font-size: 0.7rem;
   }
 }
