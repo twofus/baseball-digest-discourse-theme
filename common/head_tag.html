@@ -1,7 +1,7 @@
 <meta name="theme-color" content="#061226">
 
 <style>
-  /* Baseball Digest theme 1.1.3: administrator navigation and sidebar contrast. */
+  /* Baseball Digest theme 1.1.4: administrator navigation, sidebar and form contrast. */
 
   /* Admin tabs live on cream surfaces. Do not let the forum's gold-on-navy
      navigation palette bleed into Dashboard, Users, plugin, or settings tabs. */
@@ -85,5 +85,110 @@
   body.admin-interface .sidebar-wrapper .sidebar-section-link.exact-url-match {
     color: #f5e9cd !important;
     background: rgba(245, 233, 205, 0.08) !important;
+  }
+
+  /* Admin fields and setting selectors sit on white/cream surfaces. Force a
+     light control palette so selected values, placeholders and arrows remain
+     readable instead of inheriting the forum's cream/gold foreground colors. */
+  body.admin-interface #main-outlet .admin-config-area__settings,
+  body.admin-interface #main-outlet .admin-filtered-site-settings,
+  body.admin-interface #main-outlet .settings,
+  body.admin-interface #main-outlet .setting-value {
+    --d-input-text-color: #071429;
+    --d-input-text-color--disabled: #526071;
+    --d-input-bg-color: #fffaf0;
+    --d-input-bg-color--disabled: #f5ecd5;
+  }
+
+  body.admin-interface #main-outlet input[type="text"],
+  body.admin-interface #main-outlet input[type="password"],
+  body.admin-interface #main-outlet input[type="datetime"],
+  body.admin-interface #main-outlet input[type="datetime-local"],
+  body.admin-interface #main-outlet input[type="date"],
+  body.admin-interface #main-outlet input[type="month"],
+  body.admin-interface #main-outlet input[type="time"],
+  body.admin-interface #main-outlet input[type="week"],
+  body.admin-interface #main-outlet input[type="number"],
+  body.admin-interface #main-outlet input[type="email"],
+  body.admin-interface #main-outlet input[type="url"],
+  body.admin-interface #main-outlet input[type="search"],
+  body.admin-interface #main-outlet input[type="tel"],
+  body.admin-interface #main-outlet textarea,
+  body.admin-interface #main-outlet select,
+  body.admin-interface #main-outlet select option {
+    color: #071429 !important;
+    background-color: #fffaf0 !important;
+    color-scheme: light !important;
+  }
+
+  body.admin-interface #main-outlet input::placeholder,
+  body.admin-interface #main-outlet textarea::placeholder {
+    color: #526071 !important;
+    opacity: 1 !important;
+  }
+
+  body.admin-interface #main-outlet input:disabled,
+  body.admin-interface #main-outlet textarea:disabled,
+  body.admin-interface #main-outlet select:disabled {
+    color: #526071 !important;
+    background-color: #f5ecd5 !important;
+    opacity: 1 !important;
+  }
+
+  body.admin-interface #main-outlet .select-kit .select-kit-header:not(.btn) {
+    color: #071429 !important;
+    background: #fffaf0 !important;
+    border: 1px solid rgba(155, 118, 40, 0.62) !important;
+    text-shadow: none !important;
+  }
+
+  body.admin-interface #main-outlet .select-kit .select-kit-header:not(.btn) .selected-name,
+  body.admin-interface #main-outlet .select-kit .select-kit-header:not(.btn) .name,
+  body.admin-interface #main-outlet .select-kit .select-kit-header:not(.btn) .d-button-label,
+  body.admin-interface #main-outlet .select-kit .select-kit-header:not(.btn) span {
+    color: #071429 !important;
+    text-shadow: none !important;
+  }
+
+  body.admin-interface #main-outlet .select-kit .select-kit-header:not(.btn) .angle-icon,
+  body.admin-interface #main-outlet .select-kit .select-kit-header:not(.btn) .d-icon,
+  body.admin-interface #main-outlet .select-kit .select-kit-header:not(.btn) svg {
+    color: #526071 !important;
+    fill: currentcolor !important;
+  }
+
+  body.admin-interface #main-outlet .select-kit.is-disabled .select-kit-header:not(.btn),
+  body.admin-interface #main-outlet .select-kit.is-disabled .select-kit-header:not(.btn) * {
+    color: #526071 !important;
+    background-color: #f5ecd5 !important;
+    opacity: 1 !important;
+  }
+
+  /* SelectKit menus may render beyond the setting row. Keep the opened menu
+     light with dark text and clear selected/highlighted states. */
+  body.admin-interface .select-kit.is-expanded .select-kit-body,
+  body.admin-interface .select-kit.is-expanded .select-kit-collection,
+  body.admin-interface .select-kit.is-expanded .select-kit-row {
+    color: #071429 !important;
+    background: #fffaf0 !important;
+  }
+
+  body.admin-interface .select-kit.is-expanded .select-kit-row .name,
+  body.admin-interface .select-kit.is-expanded .select-kit-row .d-icon,
+  body.admin-interface .select-kit.is-expanded .select-kit-row svg {
+    color: #071429 !important;
+    fill: currentcolor !important;
+  }
+
+  body.admin-interface .select-kit.is-expanded .select-kit-row.is-highlighted {
+    color: #071429 !important;
+    background: #f5ecd5 !important;
+  }
+
+  body.admin-interface .select-kit.is-expanded .select-kit-row.is-selected,
+  body.admin-interface .select-kit.is-expanded .select-kit-row.is-selected.is-highlighted {
+    color: #071429 !important;
+    background: rgba(169, 31, 45, 0.13) !important;
+    font-weight: 650 !important;
   }
 </style>
