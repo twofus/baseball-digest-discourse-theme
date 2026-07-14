@@ -1,30 +1,89 @@
 <meta name="theme-color" content="#061226">
 
 <style>
-  /* Baseball Digest theme 1.1.2: readable Users-admin navigation tabs. */
-  body.admin-interface .admin-users .d-page-header .d-nav-submenu {
-    border-bottom-color: rgba(7, 20, 41, 0.2) !important;
+  /* Baseball Digest theme 1.1.3: administrator navigation and sidebar contrast. */
+
+  /* Admin tabs live on cream surfaces. Do not let the forum's gold-on-navy
+     navigation palette bleed into Dashboard, Users, plugin, or settings tabs. */
+  body.admin-interface #main-outlet .d-page-header .d-nav-submenu,
+  body.admin-interface #main-outlet .d-page-subheader .d-nav-submenu,
+  body.admin-interface #main-outlet .d-nav-submenu {
+    border-bottom-color: rgba(7, 20, 41, 0.22) !important;
   }
 
-  body.admin-interface .admin-users .d-page-header .d-nav-submenu .nav-pills > li > a,
-  body.admin-interface .admin-users .d-page-header .d-nav-submenu .nav-pills > li > a:visited {
+  body.admin-interface #main-outlet .d-page-header .d-nav-submenu .nav-pills > li > a,
+  body.admin-interface #main-outlet .d-page-subheader .d-nav-submenu .nav-pills > li > a,
+  body.admin-interface #main-outlet .d-nav-submenu .nav-pills > li > a,
+  body.admin-interface #main-outlet .nav-pills > li > a,
+  body.admin-interface #main-outlet .nav-pills > li > a:visited {
     color: #071429 !important;
     background: transparent !important;
+    border-color: transparent !important;
     font-weight: 500 !important;
+    text-shadow: none !important;
   }
 
-  body.admin-interface .admin-users .d-page-header .d-nav-submenu .nav-pills > li > a:hover,
-  body.admin-interface .admin-users .d-page-header .d-nav-submenu .nav-pills > li > a:focus-visible {
+  body.admin-interface #main-outlet .d-page-header .d-nav-submenu .nav-pills > li > a:hover,
+  body.admin-interface #main-outlet .d-page-header .d-nav-submenu .nav-pills > li > a:focus-visible,
+  body.admin-interface #main-outlet .d-page-subheader .d-nav-submenu .nav-pills > li > a:hover,
+  body.admin-interface #main-outlet .d-page-subheader .d-nav-submenu .nav-pills > li > a:focus-visible,
+  body.admin-interface #main-outlet .d-nav-submenu .nav-pills > li > a:hover,
+  body.admin-interface #main-outlet .d-nav-submenu .nav-pills > li > a:focus-visible,
+  body.admin-interface #main-outlet .nav-pills > li > a:hover,
+  body.admin-interface #main-outlet .nav-pills > li > a:focus-visible {
     color: #72111c !important;
-    background: rgba(7, 20, 41, 0.06) !important;
+    background: rgba(7, 20, 41, 0.07) !important;
+    border-color: transparent !important;
   }
 
-  body.admin-interface .admin-users .d-page-header .d-nav-submenu .nav-pills > li.active > a,
-  body.admin-interface .admin-users .d-page-header .d-nav-submenu .nav-pills > li > a.active,
-  body.admin-interface .admin-users .d-page-header .d-nav-submenu .nav-pills > li > a[aria-current="page"] {
+  body.admin-interface #main-outlet .d-page-header .d-nav-submenu .nav-pills > li.active > a,
+  body.admin-interface #main-outlet .d-page-header .d-nav-submenu .nav-pills > li > a.active,
+  body.admin-interface #main-outlet .d-page-header .d-nav-submenu .nav-pills > li > a[aria-current="page"],
+  body.admin-interface #main-outlet .d-page-subheader .d-nav-submenu .nav-pills > li.active > a,
+  body.admin-interface #main-outlet .d-page-subheader .d-nav-submenu .nav-pills > li > a.active,
+  body.admin-interface #main-outlet .d-page-subheader .d-nav-submenu .nav-pills > li > a[aria-current="page"],
+  body.admin-interface #main-outlet .d-nav-submenu .nav-pills > li.active > a,
+  body.admin-interface #main-outlet .d-nav-submenu .nav-pills > li > a.active,
+  body.admin-interface #main-outlet .d-nav-submenu .nav-pills > li > a[aria-current="page"],
+  body.admin-interface #main-outlet .nav-pills > li.active > a,
+  body.admin-interface #main-outlet .nav-pills > li > a.active,
+  body.admin-interface #main-outlet .nav-pills > li > a[aria-current="page"] {
     color: #fffaf0 !important;
     background: #a91f2d !important;
+    border-color: #a91f2d !important;
     border-bottom-color: #a91f2d !important;
     font-weight: 700 !important;
+  }
+
+  /* Admin and plugin sidebar links sit on deep navy. Keep labels cream and all
+     prefix/caret/plugin icons gold instead of Discourse blue. */
+  body.admin-interface .sidebar-wrapper .sidebar-section-link,
+  body.admin-interface .sidebar-wrapper .sidebar-section-link-content-text,
+  body.admin-interface .sidebar-wrapper .sidebar-more-section-links-details-summary {
+    color: #f5e9cd !important;
+  }
+
+  body.admin-interface .sidebar-wrapper .sidebar-section-link-prefix,
+  body.admin-interface .sidebar-wrapper .sidebar-section-link-prefix .d-icon,
+  body.admin-interface .sidebar-wrapper .sidebar-section-link-prefix svg,
+  body.admin-interface .sidebar-wrapper .sidebar-section-link-suffix,
+  body.admin-interface .sidebar-wrapper .sidebar-section-link-suffix .d-icon,
+  body.admin-interface .sidebar-wrapper .sidebar-section-link-suffix svg,
+  body.admin-interface .sidebar-wrapper .sidebar-section-header-caret,
+  body.admin-interface .sidebar-wrapper .sidebar-section-header-caret .d-icon,
+  body.admin-interface .sidebar-wrapper .sidebar-section-header-caret svg,
+  body.admin-interface .sidebar-wrapper .sidebar-section-header-button .d-icon,
+  body.admin-interface .sidebar-wrapper .sidebar-section-header-button svg {
+    color: #d4a83c !important;
+    fill: currentcolor !important;
+  }
+
+  body.admin-interface .sidebar-wrapper .sidebar-section-link:hover,
+  body.admin-interface .sidebar-wrapper .sidebar-section-link:focus-visible,
+  body.admin-interface .sidebar-wrapper .sidebar-section-link.active,
+  body.admin-interface .sidebar-wrapper .sidebar-section-link.--active,
+  body.admin-interface .sidebar-wrapper .sidebar-section-link.exact-url-match {
+    color: #f5e9cd !important;
+    background: rgba(245, 233, 205, 0.08) !important;
   }
 </style>
