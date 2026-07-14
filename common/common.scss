@@ -1,6 +1,6 @@
 /*
  * Baseball Digest Community — compact Discourse theme
- * Version 1.1.0
+ * Version 1.1.1
  *
  * Goal: traditional forum density and clarity with modern Discourse behavior.
  * The theme keeps Baseball Digest branding while removing oversized cards,
@@ -1421,6 +1421,133 @@ body.admin-interface #main-outlet .description,
 body.admin-interface #main-outlet .setting-description,
 body.admin-interface #main-outlet .help-text {
   color: var(--bd-muted-ink);
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* 1.1.1 contrast, bulk-selection and structural cleanup                       */
+/* -------------------------------------------------------------------------- */
+
+/* Category and tag selectors sit on the deep-navy discovery navigation bar.
+ * Their nested SelectKit labels otherwise inherit Discourse's blue link color. */
+.category-breadcrumb .select-kit-header,
+.category-breadcrumb .select-kit-header *,
+.category-drop .select-kit-header,
+.category-drop .select-kit-header *,
+.tag-drop .select-kit-header,
+.tag-drop .select-kit-header * {
+  color: var(--bd-cream) !important;
+}
+
+.category-breadcrumb .select-kit-header .d-icon,
+.category-breadcrumb .select-kit-header svg,
+.category-drop .select-kit-header .d-icon,
+.category-drop .select-kit-header svg,
+.tag-drop .select-kit-header .d-icon,
+.tag-drop .select-kit-header svg {
+  color: var(--bd-gold) !important;
+  fill: currentcolor;
+}
+
+.category-breadcrumb .select-kit-header:hover,
+.category-breadcrumb .select-kit-header:hover *,
+.category-drop .select-kit-header:hover,
+.category-drop .select-kit-header:hover *,
+.tag-drop .select-kit-header:hover,
+.tag-drop .select-kit-header:hover * {
+  color: var(--bd-gold) !important;
+}
+
+/* Topic-title category/status metadata is outside the cream post surface, so
+ * keep its text and icons readable against the deep-navy page background. */
+#topic-title .topic-category,
+#topic-title .topic-category a,
+#topic-title .topic-category .badge-wrapper,
+#topic-title .topic-category .badge-category__wrapper,
+#topic-title .topic-category .badge-category__name,
+#topic-title .topic-header-extra,
+#topic-title .topic-header-extra a,
+#topic-title .topic-statuses,
+#topic-title .topic-statuses a {
+  color: var(--bd-cream) !important;
+}
+
+#topic-title .topic-category .d-icon,
+#topic-title .topic-category svg,
+#topic-title .topic-statuses .d-icon,
+#topic-title .topic-statuses svg,
+#topic-title .topic-header-extra .d-icon,
+#topic-title .topic-header-extra svg {
+  color: var(--bd-gold) !important;
+  fill: currentcolor;
+}
+
+/* Make the topic-list bulk-select control and the Select All/Clear All actions
+ * readable in both the navy header and their cream button surfaces. */
+.topic-list-header .bulk-select,
+.topic-list-header .bulk-select.no-text,
+.topic-list-header .bulk-select .d-icon,
+.topic-list-header .bulk-select svg {
+  color: var(--bd-cream) !important;
+  background: transparent !important;
+  fill: currentcolor;
+}
+
+.topic-list-header .bulk-select:hover,
+.topic-list-header .bulk-select:focus-visible,
+.topic-list-header .bulk-select:hover .d-icon,
+.topic-list-header .bulk-select:focus-visible .d-icon {
+  color: var(--bd-gold) !important;
+  background: rgba(245, 233, 205, 0.07) !important;
+}
+
+.topic-list-header .bulk-select-topics-actions .btn,
+.topic-list-header .bulk-select-all,
+.topic-list-header .bulk-clear-all {
+  min-height: 28px;
+  padding: 4px 8px;
+  color: var(--bd-deep) !important;
+  background: var(--bd-surface) !important;
+  border: 1px solid var(--bd-dark-gold) !important;
+  border-radius: 2px;
+  font-size: 0.76rem;
+  font-weight: 600 !important;
+  box-shadow: none !important;
+}
+
+.topic-list-header .bulk-select-topics-actions .btn:hover,
+.topic-list-header .bulk-select-topics-actions .btn:focus-visible,
+.topic-list-header .bulk-select-all:hover,
+.topic-list-header .bulk-select-all:focus-visible,
+.topic-list-header .bulk-clear-all:hover,
+.topic-list-header .bulk-clear-all:focus-visible {
+  color: var(--bd-cream) !important;
+  background: var(--bd-red) !important;
+  border-color: var(--bd-red-dark) !important;
+}
+
+/* Remove standalone list/post terminator rules while preserving horizontal
+ * rules intentionally authored inside a post's cooked content. */
+.topic-list-bottom,
+.topic-list-bottom::before,
+.topic-list-bottom::after,
+.topic-status-info,
+.topic-timer-info {
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
+.topic-list-bottom > hr,
+#main-outlet > hr,
+#main-outlet-wrapper > hr,
+.custom-footer-content > hr,
+.topic-area + hr,
+.post-stream + hr {
+  display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
 }
 
 /* -------------------------------------------------------------------------- */

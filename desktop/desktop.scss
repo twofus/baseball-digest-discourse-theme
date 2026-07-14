@@ -40,3 +40,40 @@ body.has-sidebar-page #main-outlet-wrapper {
 .navigation-controls {
   gap: 4px;
 }
+
+
+/* Remove the desktop topic timeline/admin rail and let posts use the available
+ * content width. Breadcrumbs and the docked return control remain available. */
+@media screen and (min-width: 925px) {
+  .container.posts {
+    display: grid !important;
+    grid-template-areas: "posts" !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .container.posts > .topic-navigation {
+    display: none !important;
+  }
+
+  .container.posts > .row,
+  .container.posts .topic-area,
+  .container.posts .posts-wrapper,
+  .container.posts .post-stream,
+  .container.posts .topic-post,
+  .container.posts .topic-post article.boxed {
+    box-sizing: border-box;
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .container.posts .topic-post article.boxed > .row {
+    display: flex;
+    width: 100%;
+  }
+
+  .container.posts .topic-post .topic-body {
+    box-sizing: border-box;
+    width: calc(100% - var(--topic-avatar-width)) !important;
+    max-width: none !important;
+  }
+}
