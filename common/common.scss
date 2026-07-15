@@ -1,6 +1,6 @@
 /*
  * Baseball Digest Community — compact Discourse theme
- * Version 1.1.1
+ * Version 1.1.5
  *
  * Goal: traditional forum density and clarity with modern Discourse behavior.
  * The theme keeps Baseball Digest branding while removing oversized cards,
@@ -1621,3 +1621,87 @@ body.admin-interface #main-outlet .help-text {
     animation-iteration-count: 1 !important;
   }
 }
+
+/* -------------------------------------------------------------------------- */
+/* 1.1.5 modal close controls and universal forum breadcrumbs                 */
+/* -------------------------------------------------------------------------- */
+
+/* Modal headers use the deep-navy theme surface. Keep every supported close
+ * control off-white instead of inheriting Discourse's blue link/icon color. */
+.d-modal__header .d-modal__close,
+.d-modal__header .modal-close,
+.d-modal__header .close,
+.d-modal__header .btn-close,
+.d-modal__header button[aria-label="Close"],
+.d-modal__header button[title="Close"],
+.modal-header .modal-close,
+.modal-header .close,
+.modal-header .btn-close,
+.modal-header button[aria-label="Close"],
+.modal-header button[title="Close"],
+.dialog-header .modal-close,
+.dialog-header .close,
+.dialog-header .btn-close,
+.dialog-header button[aria-label="Close"],
+.dialog-header button[title="Close"] {
+  color: var(--bd-cream) !important;
+  background: transparent !important;
+  border-color: transparent !important;
+  opacity: 1 !important;
+  box-shadow: none !important;
+}
+
+.d-modal__header .d-modal__close .d-icon,
+.d-modal__header .d-modal__close svg,
+.d-modal__header .modal-close .d-icon,
+.d-modal__header .modal-close svg,
+.d-modal__header .close .d-icon,
+.d-modal__header .close svg,
+.d-modal__header .btn-close .d-icon,
+.d-modal__header .btn-close svg,
+.d-modal__header button[aria-label="Close"] .d-icon,
+.d-modal__header button[aria-label="Close"] svg,
+.modal-header .modal-close .d-icon,
+.modal-header .modal-close svg,
+.modal-header .close .d-icon,
+.modal-header .close svg,
+.modal-header .btn-close .d-icon,
+.modal-header .btn-close svg,
+.dialog-header .modal-close .d-icon,
+.dialog-header .modal-close svg,
+.dialog-header .close .d-icon,
+.dialog-header .close svg {
+  color: currentcolor !important;
+  fill: currentcolor !important;
+  stroke: currentcolor;
+}
+
+.d-modal__header .d-modal__close:hover,
+.d-modal__header .d-modal__close:focus-visible,
+.d-modal__header .modal-close:hover,
+.d-modal__header .modal-close:focus-visible,
+.d-modal__header .close:hover,
+.d-modal__header .close:focus-visible,
+.d-modal__header .btn-close:hover,
+.d-modal__header .btn-close:focus-visible,
+.d-modal__header button[aria-label="Close"]:hover,
+.d-modal__header button[aria-label="Close"]:focus-visible,
+.modal-header .modal-close:hover,
+.modal-header .modal-close:focus-visible,
+.modal-header .close:hover,
+.modal-header .close:focus-visible,
+.dialog-header .modal-close:hover,
+.dialog-header .modal-close:focus-visible,
+.dialog-header .close:hover,
+.dialog-header .close:focus-visible {
+  color: var(--bd-gold) !important;
+  background: rgba(245, 233, 205, 0.08) !important;
+}
+
+/* The route-aware fallback breadcrumb is injected only when a page does not
+ * already supply the topic/profile breadcrumb component. */
+.bd-theme-breadcrumbs--global {
+  position: relative;
+  z-index: 1;
+}
+

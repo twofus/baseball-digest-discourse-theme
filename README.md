@@ -2,7 +2,7 @@
 
 This repository contains the Communiteq/Discourse implementation of the Baseball Digest Community forum theme. It is a complete Discourse theme, not a phpBB style and not a server-side plugin.
 
-Version 1.1.1 refines the compact-board layout: traditional forum density and hierarchy while retaining Discourse behavior and Baseball Digest branding.
+Version 1.1.5 refines the compact-board layout, improves navigation coverage and preserves Baseball Digest branding.
 
 ## Install from Git on Communiteq
 
@@ -66,6 +66,26 @@ Not included:
 The theme uses normal Discourse theme files, supported theme API initializers and a supported plugin-outlet connector. Discourse is updated frequently, so review the theme after major Discourse updates. The standard theme should remain available as a fallback.
 
 ## Version history
+
+### 1.1.5
+
+- Changed visible forum-title references from “Baseball Digest Digital” to “Baseball Digest Forum.”
+- Added a route-aware fallback breadcrumb to public forum pages that do not already provide topic or profile breadcrumbs.
+- Kept the existing topic/profile breadcrumb components as the preferred, richer breadcrumb source.
+- Changed modal header close controls from blue to off-white, with a gold hover/focus state.
+
+### 1.1.4
+
+- Corrected administrator form controls, dropdown values, placeholders and dropdown arrows on light surfaces.
+
+### 1.1.3
+
+- Applied readable administrator tab colors across Dashboard, Users, plugin and settings pages.
+- Corrected administrator sidebar icon and label contrast.
+
+### 1.1.2
+
+- Corrected the Users administrator navigation tabs on the cream administrator background.
 
 ### 1.1.1
 
