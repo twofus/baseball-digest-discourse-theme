@@ -1705,3 +1705,69 @@ body.admin-interface #main-outlet .help-text {
   z-index: 1;
 }
 
+
+
+/* -------------------------------------------------------------------------- */
+/* 1.1.6 edit-title / composer category contrast                              */
+/* -------------------------------------------------------------------------- */
+
+/* Topic-title editing surfaces place category controls and lightweight links
+ * on the deep-navy page background. Force them off-white/gold so they remain
+ * readable while leaving cream-surface controls alone. */
+#reply-control .title-and-category .category-chooser .select-kit-header,
+#reply-control .title-and-category .category-chooser .select-kit-header *,
+#reply-control .title-and-category .tag-chooser .select-kit-header,
+#reply-control .title-and-category .tag-chooser .select-kit-header *,
+.edit-title .category-chooser .select-kit-header,
+.edit-title .category-chooser .select-kit-header *,
+.edit-title .tag-chooser .select-kit-header,
+.edit-title .tag-chooser .select-kit-header *,
+.edit-title .category-breadcrumb .select-kit-header,
+.edit-title .category-breadcrumb .select-kit-header *,
+.edit-title .category-drop .select-kit-header,
+.edit-title .category-drop .select-kit-header *,
+.edit-title .tag-drop .select-kit-header,
+.edit-title .tag-drop .select-kit-header *,
+.title-and-category .category-chooser .select-kit-header,
+.title-and-category .category-chooser .select-kit-header *,
+.title-and-category .tag-chooser .select-kit-header,
+.title-and-category .tag-chooser .select-kit-header * {
+  color: var(--bd-cream) !important;
+}
+
+#reply-control .title-and-category .category-chooser .select-kit-header .d-icon,
+#reply-control .title-and-category .category-chooser .select-kit-header svg,
+#reply-control .title-and-category .tag-chooser .select-kit-header .d-icon,
+#reply-control .title-and-category .tag-chooser .select-kit-header svg,
+.edit-title .category-chooser .select-kit-header .d-icon,
+.edit-title .category-chooser .select-kit-header svg,
+.edit-title .tag-chooser .select-kit-header .d-icon,
+.edit-title .tag-chooser .select-kit-header svg,
+.edit-title .category-breadcrumb .select-kit-header .d-icon,
+.edit-title .category-breadcrumb .select-kit-header svg,
+.edit-title .category-drop .select-kit-header .d-icon,
+.edit-title .category-drop .select-kit-header svg,
+.edit-title .tag-drop .select-kit-header .d-icon,
+.edit-title .tag-drop .select-kit-header svg,
+.title-and-category .category-chooser .select-kit-header .d-icon,
+.title-and-category .category-chooser .select-kit-header svg,
+.title-and-category .tag-chooser .select-kit-header .d-icon,
+.title-and-category .tag-chooser .select-kit-header svg {
+  color: var(--bd-gold) !important;
+  fill: currentcolor !important;
+}
+
+#reply-control .title-and-category a,
+.edit-title a,
+.title-and-category a {
+  color: var(--bd-cream);
+}
+
+#reply-control .title-and-category a:hover,
+#reply-control .title-and-category a:focus-visible,
+.edit-title a:hover,
+.edit-title a:focus-visible,
+.title-and-category a:hover,
+.title-and-category a:focus-visible {
+  color: var(--bd-gold) !important;
+}
