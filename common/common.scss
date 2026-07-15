@@ -1771,3 +1771,160 @@ body.admin-interface #main-outlet .help-text {
 .title-and-category a:focus-visible {
   color: var(--bd-gold) !important;
 }
+
+
+/* -------------------------------------------------------------------------- */
+/* 1.1.7 profile/admin content padding                                         */
+/* -------------------------------------------------------------------------- */
+
+/* Many Discourse profile and preference panes sit flush against the cream
+ * content panels on smaller screens. Add consistent interior spacing so text,
+ * headings, and form controls do not touch the container edges. */
+.user-main .about,
+.user-main .user-content,
+.user-main .pref-controls,
+.user-main .control-group,
+.user-main .control-group > .controls,
+.user-main .form-horizontal,
+.user-main .form-vertical,
+.user-main .user-preferences,
+.user-main .preferences,
+.user-main .preferences-container,
+.user-main .staff-counters,
+.user-main .user-content .user-preferences,
+.user-main .user-content .pref-email,
+.user-main .user-content .pref-profile,
+.user-main .user-content .pref-account,
+.user-main .user-content .pref-security,
+.user-main .user-content .pref-second-factor,
+.user-main .user-content .pref-notifications,
+.user-main .user-content .pref-interface,
+.user-main .user-content .pref-apps,
+.user-main .user-content .pref-tracking,
+.user-main .user-content .pref-users,
+.user-main .user-content .pref-account .controls,
+.user-main .user-content .pref-profile .controls,
+.user-main .user-content .pref-security .controls,
+.user-main .user-content .pref-email .controls,
+.user-main .user-content .pref-notifications .controls,
+.user-main .user-content .pref-interface .controls,
+.user-main .user-content .pref-apps .controls,
+.user-main .user-content .pref-tracking .controls,
+.user-main .user-content .pref-users .controls,
+.admin-detail,
+.admin-detail__content,
+.admin-contents,
+.admin-config-area,
+.admin-page-container,
+.admin-customize,
+.admin-users-list,
+.reviewable-container,
+.screened-emails,
+.screened-ips,
+.screened-urls,
+.logs-table-container,
+.dashboard-next,
+.dashboard-reports,
+.dashboard-container,
+.groups-boxes,
+.groups-boxes + .contents,
+#main-outlet .boxed.white,
+#main-outlet .user-content,
+#main-outlet .user-preferences,
+#main-outlet .preferences,
+#main-outlet .preferences-container {
+  box-sizing: border-box;
+}
+
+.user-main .about,
+.user-main .user-content,
+.user-main .user-preferences,
+.user-main .preferences,
+.user-main .preferences-container,
+#main-outlet .user-content,
+#main-outlet .user-preferences,
+#main-outlet .preferences,
+#main-outlet .preferences-container {
+  padding: 14px 16px !important;
+}
+
+.user-main .control-group,
+.user-main .pref-controls,
+.user-main .form-horizontal,
+.user-main .form-vertical,
+.user-main .user-content .pref-email,
+.user-main .user-content .pref-profile,
+.user-main .user-content .pref-account,
+.user-main .user-content .pref-security,
+.user-main .user-content .pref-second-factor,
+.user-main .user-content .pref-notifications,
+.user-main .user-content .pref-interface,
+.user-main .user-content .pref-apps,
+.user-main .user-content .pref-tracking,
+.user-main .user-content .pref-users,
+.admin-detail,
+.admin-detail__content,
+.admin-config-area,
+.admin-page-container,
+.admin-customize,
+.admin-users-list,
+.reviewable-container,
+.screened-emails,
+.screened-ips,
+.screened-urls,
+.logs-table-container,
+.dashboard-next,
+.dashboard-reports,
+.dashboard-container,
+.groups-boxes,
+.groups-boxes + .contents,
+#main-outlet .boxed.white {
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
+.user-main .controls,
+.user-main .user-field,
+.user-main .instructions,
+.user-main .pref-controls .controls {
+  margin-left: 0 !important;
+}
+
+@media (max-width: 700px) {
+  .user-main .about,
+  .user-main .user-content,
+  .user-main .user-preferences,
+  .user-main .preferences,
+  .user-main .preferences-container,
+  #main-outlet .user-content,
+  #main-outlet .user-preferences,
+  #main-outlet .preferences,
+  #main-outlet .preferences-container {
+    padding: 12px 14px !important;
+  }
+
+  .user-main .control-group,
+  .user-main .pref-controls,
+  .user-main .form-horizontal,
+  .user-main .form-vertical,
+  .admin-detail,
+  .admin-detail__content,
+  .admin-config-area,
+  .admin-page-container,
+  .admin-customize,
+  .admin-users-list,
+  .reviewable-container,
+  .screened-emails,
+  .screened-ips,
+  .screened-urls,
+  .logs-table-container,
+  .dashboard-next,
+  .dashboard-reports,
+  .dashboard-container,
+  .groups-boxes,
+  .groups-boxes + .contents,
+  #main-outlet .boxed.white {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+}
